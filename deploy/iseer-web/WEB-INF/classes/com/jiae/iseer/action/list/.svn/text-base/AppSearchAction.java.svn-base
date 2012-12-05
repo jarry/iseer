@@ -1,0 +1,71 @@
+/*
+ * Copyright (c) 2011, All Rights Reserved.
+ */
+
+
+package com.baidu.webos.action.app;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.commons.lang.StringUtils;
+//import org.springframework.stereotype.Controller;
+
+import com.baidu.webos.basic.action.SimpleActionSupport;
+import com.baidu.webos.basic.utils.CharacterCodeUtils;
+import com.baidu.webos.entity.app.App;
+import com.baidu.webos.service.app.AppSearchService;
+ 
+/**
+ * ClassName: AppSearchAction
+ * Function: AppSearch的action
+ *
+ * @author   <a href="mailto:lichunping@baidu.com">lichunping</a>
+ * @version  
+ * @since    TODO
+ * @Date     2011-9-27 下午07:42:45
+ *
+ * @see      
+ */
+
+//@Controller
+public class AppSearchAction extends SimpleActionSupport {
+    
+    private static final long serialVersionUID = 1L;
+
+    private String q;
+    private List<App> resultList;
+    
+    @Resource
+    private AppSearchService appSearchService;
+    
+    public AppSearchAction() {
+        
+    }
+
+    public String execute() throws Exception {
+        if (!StringUtils.isBlank(q)) {
+            q = CharacterCodeUtils.iso2utf8(q.trim());
+            resultList = appSearchService.getResultList(q);
+        }
+        return SUCCESS;
+    }
+
+    public String getQ() {
+        return q;
+    }
+
+    public void setQ(String q) {
+        this.q = q;
+    }
+
+    public List<App> getResultList() {
+        return resultList;
+    }
+
+    public void setResultList(List<App> resultList) {
+        this.resultList = resultList;
+    }
+    
+}

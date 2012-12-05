@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+    <package name="commonRoot" namespace="/" extends="default">
+    </package> 
+    
+    <package name="searchRoot" namespace="/" extends="default">
+        <action name="search" class="com.baidu.webos.action.search.SearchAction">          
+            <result>
+            	<param name="contentType">application/json</param>
+                <param name="location">/com/baidu/webos/template/search/search.vm</param>
+            </result>            
+            <result name="webResult" >
+            	<param name="contentType">application/json</param>
+                <param name="location">/com/baidu/webos/template/search/webResult.vm</param>
+            </result>
+            <result name="appResult" >
+            	<param name="contentType">application/json</param>
+                <param name="location">/com/baidu/webos/template/search/appResult.vm</param>
+            </result>
+            <result name="widgetResult">
+            	<param name="contentType">application/json</param>
+                <param name="location">/com/baidu/webos/template/search/widgetResult.vm</param>
+            </result>
+        </action>
+                
+    </package>
+      
+</struts>

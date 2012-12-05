@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+merge multilateral files or single file by requirement
+-->
+<project name="Jiae CSS Files Merge" default="Merge CSS" basedir=".">
+    <property name="root-path" value="../.." />
+    <property name="css-src-path" value="${root-path}/css-src" />
+    <property name="css-path" value="${root-path}/webapp/css" />
+
+    <target name="Merge CSS" depends="">
+        <echo message="merge jiae.css Begin" />
+        <concat destfile="${css-path}/jiae.css" encoding="utf-8">
+
+            <fileset dir="${css-src-path}/" includes="core/core.css" />
+            <fileset dir="${css-src-path}/" includes="com/com.css" />
+            <fileset dir="${css-src-path}/" includes="pin/pin.css" />
+
+            <fileset dir="${css-src-path}/" includes="ui/ui.css" />
+            <fileset dir="${css-src-path}/" includes="ui/smoothness/jquery-ui-1.8.20.custom.css" />
+            
+            <fileset dir="${css-src-path}/" includes="board/board.css" />
+            <fileset dir="${css-src-path}/" includes="user/user.css" />
+
+            <!--
+            <fileset dir="${css-src-path}/" includes="com/global.css" />
+            -->
+
+        </concat>
+        <echo message="Merge jiae.css Finished" />
+    </target>
+
+</project>

@@ -1,0 +1,210 @@
+/*
+ * Copyright (c) 2011, All Rights Reserved.
+ */
+
+package com.baidu.webos.service.impl.app;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.baidu.webos.service.app.AppService;
+import com.baidu.webos.service.user.UserService;
+import com.baidu.webos.dao.app.AppDao;
+import com.baidu.webos.dao.app.AppSortDao;
+import com.baidu.webos.entity.app.App;
+import com.baidu.webos.entity.cons.AppSort;
+
+/**
+ * ClassName: AppServiceImpl
+ * Description: App service层实现
+ * 
+ * @author   <a href="mailto:lichunpin@baidu.com">LiChunping</a>
+ * @version  
+ * @since    TODO
+ * @Date     2011-9-27 下午02:02:17
+ *
+ * @see      
+ */
+@Service
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+public class AppServiceImpl implements AppService {
+    
+    protected static Logger logger = LoggerFactory.getLogger(AppServiceImpl.class);
+    
+    @Resource
+    private AppDao appDao;
+    
+    @Resource
+    private AppSortDao appSortDao;
+    
+    @Resource
+    private UserService userService;
+    
+    public AppServiceImpl() {
+    }
+    
+    
+    /**
+     * get:
+     * 根据id记录来获取app对象
+     * @param id, 这里的id就是appId
+     * @return app对象
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public App get(Integer id) throws Exception {
+        return appDao.get(id);
+    }
+    
+    /**
+     * getByAppId:
+     * 根据appId获取app信息
+     * @param appId
+     * @return app对象
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public App getByAppId(Integer appId) throws Exception {
+        return appDao.getByAppId(appId);
+    }
+    
+    /**
+     * getByAppIdAndUser:
+     * 根据appId与userId获取app信息
+     * @param appId
+     * @param userId
+     * @return app对象
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public App getByAppIdAndUser(Integer appId, Integer userId) throws Exception {
+        App app = getByAppId(appId);
+        app.setInstalled(isInstalled(userService.getSystemId(userId), appId));
+        return app;
+    }
+    
+    
+    
+    /**
+     * getAppListByCategoryAndUser:
+     * 根据category与用户获取app列表信息
+     * @param category
+     * @param userId
+     * @return app对象
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public List<App> getAppListByCategoryAndUser(String category, Integer userId) throws Exception {
+        List<App> appList = getAppListByCategory(category);
+        for (App app : appList) {
+            app.setInstalled(this.isInstalled(userService.getSystemId(userId), app.getAppId()));
+        }
+        return appList;
+    }
+    
+    /**
+     * getAppListByCategory:
+     * 根据category获取app列表信息
+     * @param category
+     * @return app对象
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public List<App> getAppListByCategory(String category) throws Exception {
+        if (category != null) {
+            //跟category名称查询categoryId
+            Integer categoryId = appSortDao.getCategoryId(category);
+            return appDao.getAppList(categoryId);
+        }
+        return null;
+    }
+    
+    /**
+     * getAppList:
+     * 获取app对象列表信息
+     * @param sort
+     * @return app列表
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public List<App> getAppList() throws Exception {
+        return appDao.getAppList();
+    }
+    
+    
+    /**
+     * getAppList:
+     * 根据userId获取app对象列表信息
+     * @param sort
+     * @return app列表
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public List<App> getAppListByUser(Integer userId) throws Exception {
+        List<App> appList = appDao.getAppList();
+        for (App app : appList) {
+            app.setInstalled(this.isInstalled(userService.getSystemId(userId), app.getAppId()));
+        }
+        return appList;
+    }
+    
+    /**
+     * getAppSortList:
+     * 获取app种类对象列表信息
+     * @return sort名称列表
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public List<AppSort> getAppSortList() throws Exception {
+        return appSortDao.getSortList();
+    }
+    
+    
+    /**
+     * getAppListByHot:
+     * 获取最热app对象列表信息
+     * @param sort
+     * @return app列表
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public List<App> getAppListByHot() throws Exception {
+        return appDao.getAppListByHot();
+    }
+    
+    
+    /**
+     * getAppListByLatest:
+     * 获取最近app对象列表信息
+     * @param sort
+     * @return app列表
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public List<App> getAppListByLatest() throws Exception {     
+        return appDao.getAppListByLatest();
+    }
+    
+    
+    /**
+     * installed:
+     * 根据systemId与appId判断该app是否已经安装了
+     * @param systemId
+     * @param appId
+     * @return true | false
+     * @author lichunping    
+     * @since 1.0.0
+     */
+    public boolean isInstalled(Integer systemId, Integer appId) {
+        return appDao.isInstalled(systemId, appId);
+    }
+
+    
+}

@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!--
+function:
+    1. merge JS files accrodding the include setting,
+       mind JS files loading order 
+
+author: lichunping
+mail: JarryLi@gmail.com 
+-->
+<project name="Jiae JS Files Merge" default="Merge jiae.js" basedir=".">
+        <property name="root-path" value="../.."/>
+        <property name="js-src-path" value="${root-path}/js-src"/>
+        <property name="js-path" value="${root-path}/webapp/js"/>
+        <!--Merge core.js-->
+        <target name="Merge core.js" depends="">
+                <echo message="merge core.js Begin"/>
+                <concat destfile="${js-path}/core.js" encoding="utf-8">
+                
+                    <!--  lib dir -->
+                    <fileset dir="${js-src-path}/lib/" includes="jquery-1.7.2.js"/>
+
+                    <!--  com dir -->
+                    <fileset dir="${js-src-path}/com/" includes="jquery.masonry.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="jquery.infinitescroll.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="jquery.ajaxupload.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="jquery.fn.expand.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Com.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Validator.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Template.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="PageLayout.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Scroll.js"/>
+
+                    <!--  ui dir -->
+                    <fileset dir="${js-src-path}/ui/" includes="jquery.ui.core.js"/>
+                    <fileset dir="${js-src-path}/ui/" includes="jquery.ui.position.js"/>
+                    <fileset dir="${js-src-path}/ui/" includes="jquery.ui.widget.js"/>
+                    <fileset dir="${js-src-path}/ui/" includes="jquery.ui.mouse.js"/>
+                    <fileset dir="${js-src-path}/ui/" includes="jquery.ui.draggable.js"/>
+                    <fileset dir="${js-src-path}/ui/" includes="jquery.ui.dialog.js"/>
+                    <fileset dir="${js-src-path}/ui/" includes="jquery.ui.mask.js"/>
+                        
+                    <!--  
+                        <fileset dir="${js-src-path}/tool/" includes="Tracer.js"/>
+                    -->
+
+
+                </concat>
+                <echo message="Merge core.js Finished"/>
+        </target>
+
+        <!--Merge jiae.js-->
+        <target name="Merge jiae.js" depends="Merge core.js">
+                <echo message="Merge jiae.js Begin"/>
+                <concat destfile="${js-path}/jiae.js" encoding="utf-8">
+
+                    <!--  conf dir -->
+                    <fileset dir="${js-src-path}/conf/" includes="Config.js"/>
+                       
+                    <!--  index dir -->
+                    <fileset dir="${js-src-path}/index/" includes="Index.js"/>
+                    <fileset dir="${js-src-path}/index/" includes="Index.Config.js"/>
+                    <fileset dir="${js-src-path}/index/" includes="Index.Action.js"/>
+                    <fileset dir="${js-src-path}/index/" includes="Index.Base.js"/>
+                    <fileset dir="${js-src-path}/index/" includes="Index.Dao.js"/>
+
+                    <!--  pin dir -->
+                    <fileset dir="${js-src-path}/pin/" includes="Pin.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="Pin.Config.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="Pin.Action.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="Pin.Com.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="Pin.Base.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="Pin.Dao.js"/>
+
+                    <fileset dir="${js-src-path}/pin/" includes="PinAdd.Base.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="PinRepin.Base.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="PinLike.Base.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="PinCollect.Action.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="PinCollect.Base.js"/>
+
+                    <fileset dir="${js-src-path}/pin/" includes="PinDetail.Action.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="PinDetail.Base.js"/>
+                    <fileset dir="${js-src-path}/pin/" includes="PinDetail.Dao.js"/>
+
+                    <!--  board dir -->
+                    <fileset dir="${js-src-path}/board/" includes="Board.js"/>
+                    <fileset dir="${js-src-path}/board/" includes="Board.Config.js"/>
+                    <fileset dir="${js-src-path}/board/" includes="Board.Action.js"/>
+                    <fileset dir="${js-src-path}/board/" includes="Board.Base.js"/>
+                    <fileset dir="${js-src-path}/board/" includes="Board.Dao.js"/>
+                    <fileset dir="${js-src-path}/board/" includes="BoardDetail.Base.js"/>
+
+
+                    <!--  comment dir -->
+                    <fileset dir="${js-src-path}/comment/" includes="Comment.js"/>
+                    <fileset dir="${js-src-path}/comment/" includes="Comment.Config.js"/>
+                    <fileset dir="${js-src-path}/comment/" includes="Comment.Action.js"/>
+                    <fileset dir="${js-src-path}/comment/" includes="Comment.Base.js"/>
+                    <fileset dir="${js-src-path}/comment/" includes="Comment.Dao.js"/>
+
+
+                    <!--  user dir -->
+                    <fileset dir="${js-src-path}/user/" includes="User.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="User.Config.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="User.Action.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="User.Base.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="User.Card.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="User.Dao.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="UserPinGrid.Base.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="UserBoardList.Base.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="UserFollowing.Base.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="UserFollowers.Base.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="UserLikeList.Base.js"/>
+
+                    <fileset dir="${js-src-path}/user/" includes="User.Setting.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="User.ChangePass.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="User.Register.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="User.Invite.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="UserGuide.Action.js"/>
+                    <fileset dir="${js-src-path}/user/" includes="UserGuide.Base.js"/>
+
+                    <!--  category dir -->
+                    <fileset dir="${js-src-path}/category/" includes="Category.js"/>
+                    <fileset dir="${js-src-path}/category/" includes="Category.Config.js"/>
+                    <fileset dir="${js-src-path}/category/" includes="Category.Action.js"/>
+                    <fileset dir="${js-src-path}/category/" includes="Category.Base.js"/>
+                    <fileset dir="${js-src-path}/category/" includes="Category.Dao.js"/>
+
+                    <!--  popular dir -->
+                    <fileset dir="${js-src-path}/popular/" includes="Popular.js"/>
+                    <fileset dir="${js-src-path}/popular/" includes="Popular.Config.js"/>
+                    <fileset dir="${js-src-path}/popular/" includes="Popular.Action.js"/>
+                    <fileset dir="${js-src-path}/popular/" includes="Popular.Base.js"/>
+                    <fileset dir="${js-src-path}/popular/" includes="Popular.Dao.js"/>
+
+                    <!--  message dir -->
+                    <fileset dir="${js-src-path}/message/" includes="Message.js"/>
+                    <fileset dir="${js-src-path}/message/" includes="Message.Config.js"/>
+                    <fileset dir="${js-src-path}/message/" includes="Message.Action.js"/>
+                    <fileset dir="${js-src-path}/message/" includes="Message.Base.js"/>
+                    <fileset dir="${js-src-path}/message/" includes="Message.Dao.js"/>
+
+                    <!--  activity dir -->
+                    <fileset dir="${js-src-path}/activity/" includes="Activity.js"/>
+                    <fileset dir="${js-src-path}/activity/" includes="Activity.Config.js"/>
+                    <fileset dir="${js-src-path}/activity/" includes="Activity.Action.js"/>
+                    <fileset dir="${js-src-path}/activity/" includes="Activity.Base.js"/>
+                    <fileset dir="${js-src-path}/activity/" includes="Activity.Dao.js"/>
+                    <fileset dir="${js-src-path}/activity/" includes="Activity.Feed.js"/>
+                    <fileset dir="${js-src-path}/activity/" includes="Activity.Notice.js"/>
+
+                    <!--  connector dir -->
+                    <fileset dir="${js-src-path}/connector/" includes="Connector.js"/>
+                    <fileset dir="${js-src-path}/connector/" includes="Connector.Config.js"/>
+                    <fileset dir="${js-src-path}/connector/" includes="Connector.Action.js"/>
+                    <fileset dir="${js-src-path}/connector/" includes="Connector.Base.js"/>
+                    <fileset dir="${js-src-path}/connector/" includes="Connector.Dao.js"/>
+                       
+                </concat>
+                <echo message="Merge jiae.js Finished"/>
+        </target>
+
+</project>
