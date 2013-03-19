@@ -1,0 +1,15 @@
+/*
+ * Copyright 2012 Jiae.com All rights reserved.
+ * 
+ * file: index.css
+ * path: css-src/
+ * description: css合并文件
+ * author: jarryli@gmail.com
+ * date: 2012-4-5
+ */
+@charset 'utf-8';
+
+/* for lichunping@development enviroment */
+@import url("http://127.0.0.1:8081/iseer-dev/css-src/core/core.css");
+@import url("http://127.0.0.1:8081/iseer-dev/css-src/search/search.css");
+@import url("http://127.0.0.1:8081/iseer-dev/css-src/common/common.css");

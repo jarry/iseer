@@ -1,0 +1,787 @@
+/*
+ * Copyright 2012 Jiae.com All rights reserved.
+ * 
+ * file: core.css
+ * path: css-src/
+ * description: 基础css
+ *              基本规则：
+ *              - 所有class都使用classname，而不采用id。没有#Header样式
+ *              - 全局性的唯一的大的布局块采用首字母大写，如:.Header .PinWrapper, 其他classname均为小写，以下划线连接，如.pin 
+ *              - 通过全局性唯一的块样式+标签来定义多级样式，减少子节点的classname
+ *              - 基础字体字号单独指定，对通用的html标签重定义样式，同时一个标签尽量控制在4个样式名称内
+ *              - 语义化以及具体命名、格式规范、注意事项等详细内容参见《CSS编码规范》
+ * author: jarryli@gmail.com
+ * date: 2012-4-5
+ */
+@charset 'utf-8';
+
+/* BASIC STYLE
+--------------------------------------------------------------------------------------- */
+html
+{
+   /*  background: #e7e6e3; */
+}
+body {
+    background: #e7e6e3;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td
+{
+    margin: 0;
+    padding: 0;
+
+}
+button, input, select, textarea {
+    font: 12px/1.125 Arial, Helvetica, sans-serif;
+}
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset, img
+{
+    border: 0 none;
+}
+address, caption, cite, code, dfn, em, strong, th, var
+{
+    font-style: normal;
+    font-weight: normal;
+}
+li
+{
+    list-style: none outside none;
+}
+caption, th
+{
+    text-align: left;
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 100%;
+    font-weight: normal;
+}
+input, textarea, select
+{
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    /* outline: medium none; */
+    resize: none;
+}
+body
+{
+    color: #666;
+    font-family: 'helvetica neue', arial,sans-serif;
+    font-size: 12px;
+}
+a
+{
+    color: #627f9f;
+    outline: none;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #0082cb;
+    text-decoration: underline;
+}
+textarea, input
+{
+    background: #fcfcfc;
+    border: 1px solid;
+    border-color: #ddd #e1dfdf #d1cdcd;
+    box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
+    line-height: 20px;
+    moz-box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
+    padding: 5px;
+    padding-bottom:10px\9;
+    webkit-box-shadow: inset 0 0 2px rgba(255,255,255,0.75);
+    /* outline-style:none; */
+}
+textarea:focus, input:focus
+{
+    background-color: #fff;
+    box-shadow: inset 0 1px 1px rgba(34,29,29,0.1);
+    moz-box-shadow: inset 0 1px 1px rgba(34,29,29,0.1);
+    webkit-box-shadow: inset 0 1px 1px rgba(34,29,29,0.1);
+}
+.hidden
+{
+    display: none !important;
+}
+.highlighted
+{
+    background-color: #cb4042 !important;
+    color: #211922;
+}
+.error
+{
+    color: #cb4042 !important;
+    /*font-size: 12px;*/
+    /*font-weight: 300;*/
+}
+.clear
+{
+    clear: both;
+    clear: both !important;
+}
+.clearfix:before, .clearfix:after
+{
+    content: "";
+    display: table;
+}
+.clearfix:after
+{
+    clear: both;
+}
+.clearfix
+{
+    zoom: 1;
+}
+.centered
+{
+    margin: 0 auto;
+}
+.fixed {
+    position: fixed !important;
+}
+.invisible {
+    visibility: hidden !important;
+}
+.noscroll 
+{   
+    overflow: hidden !important;
+}
+.noscroll.extraScroll 
+{
+    margin-right: 15px;
+} /* Extra space on the right for FireFox */
+.clearfix:after 
+{
+    clear: both; display: block; height: 0; content: " "; visibility: hidden;
+}
+
+.colorlight,
+.colorlight a {color: #ad9c9c;}
+.colorless,
+.colorless a {color: #8c7e7e;}
+.colormuted,
+.colormuted a {color: #524d4d;}
+
+.ellipsis
+{
+    white-space:nowrap; text-overflow:ellipsis; 
+    -o-text-overflow:ellipsis; 
+
+    /* firefox下省略号实现
+    -moz-binding:url('ellipsis.xml#ellipsis'); */
+    overflow:hidden;
+}
+
+/* BUTTONS //TODO: will be modified
+--------------------------------------------------------------------------------------- */
+.button
+{
+
+    border: 1px solid transparent;
+    border-radius: .3em;
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35);
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1em;
+    moz-border-radius: .3em;
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35);
+    moz-transition-duration: .05s;
+    moz-transition-property: color, -moz-box-shadow, text-shadow;
+    moz-transition-timing-function: ease-in-out;
+    padding: .45em .825em .45em;
+    position: relative;
+    text-align: center;
+    webkit-border-radius: .3em;
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35);
+    webkit-transition-duration: .05s;
+    webkit-transition-property: color, -webkit-box-shadow, text-shadow;
+    webkit-transition-timing-function: ease-in-out;
+}
+.button:hover
+{
+    text-decoration: none;
+}
+.button strong
+{
+    position: relative;
+    z-index: 2;
+}
+.button span
+{
+    border: 1px solid;
+    border-radius: .3em;
+    bottom: -1px;
+    box-shadow: inset 0 1px rgba(255,255,255,0.35);
+    display: block;
+    left: -1px;
+    moz-border-radius: .3em;
+    moz-box-shadow: inset 0 1px rgba(255,255,255,0.35);
+    moz-transition-duration: 0.5s;
+    moz-transition-property: opacity;
+    moz-transition-timing-function: ease-in-out;
+    opacity: 1;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    webkit-border-radius: .3em;
+    webkit-box-shadow: inset 0 1px rgba(255,255,255,0.35);
+    webkit-transition-duration: 0.5s;
+    webkit-transition-property: opacity;
+    webkit-transition-timing-function: ease-in-out;
+    z-index: 1;
+}
+.button:hover span
+{
+    moz-transition-duration: 0.05s;
+    moz-transition-property: opacity;
+    moz-transition-timing-function: linear;
+    webkit-transition-duration: 0.05s;
+    webkit-transition-property: opacity;
+    webkit-transition-timing-function: linear;
+}
+.button:active span
+{
+    moz-transition: none;
+    webkit-transition: none;
+}
+.button12,
+.button12 span
+{
+    border-radius: 3px;
+    font-size: 12px;
+    moz-border-radius: 3px;
+    webkit-border-radius: 3px;
+}
+.button14,
+.button14 span
+{
+    border-radius: 4px;
+    font-size: 14px;
+    moz-border-radius: 4px;
+    webkit-border-radius: 4px;
+}
+.button18,
+.button18 span
+{
+    border-radius: 6px;
+    font-size: 18px;
+    moz-border-radius: 6px;
+    webkit-border-radius: 6px;
+}
+.button24,
+.button24 span
+{
+    border-radius: 8px;
+    font-size: 24px;
+    moz-border-radius: 8px;
+    webkit-border-radius: 8px;
+}
+
+.action-button {
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  border: 1px solid #CCC;
+  background-color: #FFF;
+  padding: 5px 8px 6px 8px;
+  background-color: #f4f4f4;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f4f4f4));
+  background-image: -webkit-linear-gradient(top, #ffffff, #f4f4f4);
+  background-image: -moz-linear-gradient(top, #ffffff, #f4f4f4);
+  background-image: -ms-linear-gradient(top, #ffffff, #f4f4f4);
+  background-image: -o-linear-gradient(top, #ffffff, #f4f4f4);
+  background-image: linear-gradient(top, #ffffff, #f4f4f4);
+  filter: progid :DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#f4f4f4');
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  -webkit-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  color: #313131;
+}
+.action-button:hover {
+  background-color: #fff;
+  border: 1px solid #999;
+}
+a.action-button {
+  color: #313131;
+}
+a.action-button:hover {
+  color: #000;
+}
+.action-button.left {
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+}
+.action-button.right {
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  margin-left: -1px;
+}
+.action-button.active {
+  border: 1px solid #aaa;
+  color: #555;
+  background-color: #444444;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#cccccc));
+  background-image: -webkit-linear-gradient(top, #dddddd, #cccccc);
+  background-image: -moz-linear-gradient(top, #dddddd, #cccccc);
+  background-image: -ms-linear-gradient(top, #dddddd, #cccccc);
+  background-image: -o-linear-gradient(top, #dddddd, #cccccc);
+  background-image: linear-gradient(top, #dddddd, #cccccc);
+  text-shadow: 0 1px #ccc;
+  -moz-box-shadow: inset 0 2px 3px rgba(0,0,0,.15);
+  -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0,.15);
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.15);
+
+    moz-transition: none;
+    webkit-transition: none;
+}
+a.action-button.active:hover {
+  color: #000;
+}
+
+/* Red Button */
+.red-button
+{
+    color: #fcf9f9;
+    text-shadow: 0 -1px rgba(34,25,25,0.5);
+}
+.red-button:hover
+{
+    color: #fff;
+    text-shadow: 0 -1px rgba(34,25,25,0.3);
+}
+.red-button:active
+{
+    color: #f2f0f0;
+    text-shadow: 0 -1px rgba(34,25,25,0.6);
+}
+.red-button span
+{
+    background: -moz-linear-gradient(center top, #eb5367, #e04751 50%, #de404a 50%, #cd4042);
+    background: -o-linear-gradient(top left, #eb5367, #e04751 50%, #de404a 50%, #cd4042);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eb5367), to(#cd4042), color-stop(.5,#e04751),color-stop(.5,#de404a));
+    background-color: #cd4042;
+    border-color: #910101;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eb5367', endColorstr='#cd4042');
+}
+.red-button:hover span
+{
+    background: -moz-linear-gradient(center top, #ea5d6e, #e3535d 50%, #e04a54 50%, #d63e40);
+    background: -o-linear-gradient(top left, #ea5d6e, #e3535d 50%, #e04a54 50%, #d63e40);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ea5d6e), to(#d63e40), color-stop(.5,#e3535d),color-stop(.5,#e04a54));
+    background-color: #d63e40;
+    border-color: #ad0303;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ea5d6e', endColorstr='#d63e40');
+}
+.red-button:active span
+{
+    background: -moz-linear-gradient(center top, #dd4b5d, #d5414b 50%, #d33d46 50%, #c83031);
+    background: -o-linear-gradient(top left, #dd4b5d, #d5414b 50%, #d33d46 50%, #c83031);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d5414b), to(#c83031), color-stop(.5,#d5414b),color-stop(.5,#d33d46));
+    background-color: #c83031;
+    border-color: #510000;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dd4b5d', endColorstr='#c83031');
+}
+.red-button.button12:hover span
+{
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 5px rgba(235,82,82,0.25);
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 5px rgba(235,82,82,0.25);
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 5px rgba(235,82,82,0.25);
+}
+.red-button.button12:active span
+{
+    box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 1px rgba(235,82,82,0.35);
+    moz-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 1px rgba(235,82,82,0.35);
+    webkit-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 2px rgba(235,82,82,0.35);
+}
+.red-button.button14:hover span
+{
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 6px rgba(235,82,82,0.25);
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 6px rgba(235,82,82,0.25);
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 6px rgba(235,82,82,0.25);
+}
+.red-button.button14:active span
+{
+    box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 2px rgba(235,82,82,0.35);
+    moz-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 2px rgba(235,82,82,0.35);
+    webkit-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 2px rgba(235,82,82,0.35);
+}
+.red-button.button18:hover span
+{
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 10px rgba(235,82,82,0.25);
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 10px rgba(235,82,82,0.25);
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 10px rgba(235,82,82,0.25);
+}
+.red-button.button18:active span
+{
+    box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 3px rgba(235,82,82,0.35);
+    moz-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 3px rgba(235,82,82,0.35);
+    webkit-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 3px rgba(235,82,82,0.35);
+}
+.red-button.button24:hover span
+{
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 14px rgba(235,82,82,0.25);
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 14px rgba(235,82,82,0.25);
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 14px rgba(235,82,82,0.25);
+}
+.red-button.button24:active span
+{
+    box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 4px rgba(235,82,82,0.35);
+    moz-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 4px rgba(235,82,82,0.35);
+    webkit-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 4px rgba(235,82,82,0.35);
+}
+
+/* blue Button */
+.blue-button
+{
+    color: #fcf9f9;
+    text-shadow: 0 -1px rgba(34,25,25,0.5);
+}
+.blue-button:hover
+{
+    color: #fff;
+    text-shadow: 0 -1px rgba(34,25,25,0.3);
+}
+.blue-button:active
+{
+    color: #f2f0f0;
+    text-shadow: 0 -1px rgba(34,25,25,0.6);
+}
+.blue-button span
+{
+    background: -moz-linear-gradient(center top, #409bcb, #3d9aca 50%, #409bcb 50%, #3d9aca);
+    background: -o-linear-gradient(top left, #409bcb, #3d9aca 50%, #409bcb 50%, #3d9aca);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#459fcd), to(#3d9aca), color-stop(.5, #459fcd),color-stop(.5, #3d9aca));
+    background-color: #4099c6;
+    border-color: #368ab4;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#409bcb', endColorstr='#3d9aca');
+}
+.blue-button:hover span
+{
+    background-color: #4ea9d8;
+}
+.blue-button:active span
+{
+    background-color: #6cbae2;
+}
+
+/* green Button */
+.green-button
+{
+    color: #fcf9f9;
+    text-shadow: 0 -1px rgba(34,25,25,0.5);
+}
+.green-button:hover
+{
+    color: #fff;
+    text-shadow: 0 -1px rgba(34,25,25,0.3);
+}
+.green-button:active
+{
+    color: #f2f0f0;
+    text-shadow: 0 -1px rgba(34,25,25,0.6);
+}
+.green-button span
+{
+    background: -moz-linear-gradient(center top, green, green 50%, green 50%, green);
+    background: -o-linear-gradient(top left, green, green 50%, green 50%, green);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(green), to(green), color-stop(.5, green),color-stop(.5, green));
+    background-color: green;
+    border-color: green;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='green', endColorstr='green');
+}
+.green-button:hover span
+{
+    background: -moz-linear-gradient(center top, green, green 50%, green 50%, green);
+    background: -o-linear-gradient(top left, green, green 50%, green 50%, green);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(green), to(green), color-stop(.5,green),color-stop(.5,green));
+    background-color: green;
+    border-color: green;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='green', endColorstr='green');
+}
+.green-button:active span
+{
+}
+
+/* Delete Button */
+.delete-button:hover span
+{
+    background-color: #a20007;
+    background-image: linear-gradient(top, rgb(240, 119, 102), rgb(162, 0, 7));
+    background-image: -moz-linear-gradient(top, rgb(240, 119, 102), rgb(162, 0, 7));
+    background-image: -ms-linear-gradient(top, rgb(240, 119, 102), rgb(162, 0, 7));
+    background-image: -o-linear-gradient(top, rgb(240, 119, 102), rgb(162, 0, 7));
+    background-image: -webkit-gradient(linear, left top, left bottom, to(rgb(240, 119, 102)), from(rgb(162, 0, 7)));
+    background-image: -webkit-linear-gradient(top, rgb(240, 119, 102), rgb(162, 0, 7));
+    border-color: #910101;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f07766', EndColorStr='#a20007');
+}
+.delete-button span
+{
+    background-color: #ed403d;
+    background-image: linear-gradient(top, rgb(237, 64, 61), rgb(147, 0, 0));
+    background-image: -moz-linear-gradient(top, rgb(237, 64, 61), rgb(147, 0, 0));
+    background-image: -ms-linear-gradient(top, rgb(237, 64, 61), rgb(147, 0, 0));
+    background-image: -o-linear-gradient(top, rgb(237, 64, 61), rgb(147, 0, 0));
+    background-image: -webkit-gradient(linear, left top, left bottom, to(rgb(237, 64, 61)), from(rgb(147, 0, 0)));
+    background-image: -webkit-linear-gradient(top, rgb(237, 64, 61), rgb(147, 0, 0));
+    border-color: #ad0303;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ed403d', EndColorStr='#930000');
+}
+.delete-button:active span
+{
+    background: -moz-linear-gradient(center top, #dd4b5d, #d5414b 50%, #d33d46 50%, #c83031);
+    background: -o-linear-gradient(top left, #dd4b5d, #d5414b 50%, #d33d46 50%, #c83031);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d5414b), to(#c83031), color-stop(.5,#d5414b),color-stop(.5,#d33d46));
+    background-color: #610007;
+    border-color: #510000;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dd4b5d', endColorstr='#c83031');
+}
+
+/* White Button */
+.white-button
+{
+    color: #524d4d;
+    text-shadow: 0 1px rgba(255,255,255,0.9);
+}
+.white-button:hover
+{
+    color: #666060;
+    text-shadow: 0 1px rgba(255,255,255,1);
+}
+.white-button:active
+{
+    color: #454141;
+    text-shadow: 0 1px rgba(255,255,255,0.8);
+}
+.white-button span
+{
+    background: -moz-linear-gradient(center top, #fefefe, #f9f7f7 50%, #f6f3f4 50%, #f5f5f5);
+    background: -o-linear-gradient(top left, #fefefe, #f9f7f7 50%, #f6f3f4 50%, #f5f5f5);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fefefe), to(#f5f5f5), color-stop(.5,#f9f7f7),color-stop(.5,#f6f3f4));
+    background-color: #f5f5f5;
+    border-color: #bbb;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#f5f5f5');
+}
+.white-button:hover span
+{
+    background: -moz-linear-gradient(center top, #fdfcfc, #fbf9f9 50%, #f7f5f6 50%, #f2f0f0);
+    background: -o-linear-gradient(top left, #fdfcfc, #fbf9f9 50%, #f7f5f6 50%, #f2f0f0);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fdfcfc), to(#f2f0f0), color-stop(.5,#fbf9f9),color-stop(.5,#f7f5f6));
+    background-color: #f2f0f0;
+    border-color: #c3c3c3;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfcfc', endColorstr='#f2f0f0');
+}
+.white-button:active span
+{
+    background: -moz-linear-gradient(center top, #f8f4f5, #f3f0f0 50%, #f1eeef 50%, #ebe8e8);
+    background: -o-linear-gradient(top left, #f8f4f5, #f3f0f0 50%, #f1eeef 50%, #ebe8e8);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f8f4f5), to(#ebe8e8), color-stop(.5,#f3f0f0),color-stop(.5,#f1eeef));
+    background-color: #ebe8e8;
+    border-color: #b7b7b7;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f4f5', endColorstr='#ebe8e8');
+}
+.white-button.button12:hover span
+{
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 5px rgba(232,230,230,0.75);
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 5px rgba(232,230,230,0.75);
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 5px rgba(232,230,230,0.75);
+}
+.white-button.button12:active span
+{
+    box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 1px rgba(232,230,230,0.5);
+    moz-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 1px rgba(232,230,230,0.5);
+    webkit-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 2px rgba(232,230,230,0.5);
+}
+.white-button.button14:hover span
+{
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 6px rgba(232,230,230,0.75);
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 6px rgba(232,230,230,0.75);
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 6px rgba(232,230,230,0.75);
+}
+.white-button.button14:active span
+{
+    box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 2px rgba(232,230,230,0.5);
+    moz-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 2px rgba(232,230,230,0.5);
+    webkit-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 2px rgba(232,230,230,0.5);
+}
+.white-button.button18:hover span
+{
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 10px rgba(232,230,230,0.75);
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 10px rgba(232,230,230,0.75);
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 10px rgba(232,230,230,0.75);
+}
+.white-button.button18:active span
+{
+    box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 3px rgba(232,230,230,0.5);
+    moz-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 3px rgba(232,230,230,0.5);
+    webkit-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 3px rgba(232,230,230,0.5);
+}
+.white-button.button24:hover span
+{
+    box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 14px rgba(232,230,230,0.75);
+    moz-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 14px rgba(232,230,230,0.75);
+    webkit-box-shadow: 0 1px rgba(255,255,255,0.8), inset 0 1px rgba(255,255,255,0.35), 0 0 14px rgba(232,230,230,0.75);
+}
+.white-button.button24:active span
+{
+    box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 4px rgba(232,230,230,0.5);
+    moz-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 4px rgba(232,230,230,0.5);
+    webkit-box-shadow: inset 0 1px 2px rgba(34,25,25,0.25), 0 0 4px rgba(232,230,230,0.5);
+}
+/* Inline Button */
+.inline-button
+{
+    border: none;
+    display: block;
+    margin: 1px;
+    moz-border-radius: 0;
+    /*padding: 0.65em 0.825em;*/
+    webkit-border-radius: 0;
+}
+.inline-button span
+{
+    border: none;
+    border-radius: 0;
+    moz-border-radius: 0;
+    webkit-border-radius: 0;
+}
+/* Suppressed Button */
+.button.suppressed span
+{
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.button.suppressed:hover span
+{
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+/* Disabled Button */
+.button.disabled
+{
+    background: #f2f0f0;
+    border-color: #d1cdcd;
+    color: #d1cdcd;
+    cursor: default;
+    text-shadow: 0 -1px rgba(34,25,25,0.01);
+}
+.button.disabled strong {
+    color:#cdcdcd;
+}
+.button.disabled:hover
+{
+    color: #d1cdcd;
+    text-decoration: none;
+}
+.button.disabled span
+{
+    background: transparent;
+    border: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    opacity: 0;
+}
+.button.disabled.clickable
+{
+    cursor: pointer;
+}
+
+
+.button.indicator
+{
+    display: block; 
+    text-align: center;
+    border-width: 0; box-shadow: 0 0 #fff; 
+    -moz-box-shadow: 0 0 #fff; 
+    -webkit-box-shadow: 0 0 #fff;
+    line-height: 15px;
+}
+.button.indicator em
+{
+    font-size: 12px;
+    line-height:16px
+}
+.button.indicator span 
+{
+    border-width: 0; 
+    box-shadow: 0 1px 3px rgba(34,25,25,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.5);
+}
+
+/*
+ * Copyright 2012 Jiae.com All rights reserved.
+ * 
+ * file: common.css
+ * path: css-src/
+ * description: 基础css
+ *              基本规则：
+ *              - 所有class都使用classname，而不采用id。没有#Header样式
+ *              - 全局性的唯一的大的布局块采用首字母大写，如:.Header .PinWrapper, 其他classname均为小写，以下划线连接，如.pin 
+ *              - 通过全局性唯一的块样式+标签来定义多级样式，减少子节点的classname
+ *              - 基础字体字号单独指定，对通用的html标签重定义样式，同时一个标签尽量控制在4个样式名称内
+ *              - 语义化以及具体命名、格式规范、注意事项等详细内容参见《CSS编码规范》
+ * author: jarryli@gmail.com
+ * date: 2012-4-5
+ */
+@charset 'utf-8';
+
+/* Common STYLE
+--------------------------------------------------------------------------------------- */
+.wrapper {
+    margin: 0 auto;
+    width: 1020px;
+}
+.wrapper .image-list {
+    width:1024px;
+}
+.wrapper .image-list li {
+    overflow:hidden;
+    width:200px;
+    height:200px;
+    float:left;
+}
+.wrapper .image-list img {
+    width:200px;
+    float:left;
+}
+.wrapper h1 {
+    text-align: center;
+    font-size: 24px;
+}
+header,nav,footer {
+    clear: both;
+    margin: 0 auto;
+    width: 1020px;
+    text-align: center;
+}
+footer {
+    margin-top:10px;
+}/*
+ * Copyright 2012 Jiae.com All rights reserved.
+ * 
+ * file: search.css
+ * path: css-src/search/
+ * description: search css，包括search以及详情页相关，不含基本和UI控件
+ *              基本规则：
+ *              - 所有class都使用classname，而不采用id。没有#Header样式
+ *              - 全局性的唯一的大的布局块采用首字母大写，如:.Header .searchWrapper, 其他classname均为小写，以下划线连接，如.search 
+ *              - 通过全局性唯一的块样式+标签来定义多级样式，减少子节点的classname
+ *              - 基础字体字号单独指定，对通用的html标签重定义样式，同时一个标签尽量控制在4个样式名称内
+ *              - 语义化以及具体命名、格式规范、注意事项等详细内容参见《CSS编码规范》
+ * 
+ * author: jarryli@gmail.com
+ * date: 2012-4-5
+ */
+@charset 'utf-8';

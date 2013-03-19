@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="indexRoot" namespace="/" extends="default">
+        <action name="index" class="com.jiae.iseer.action.index.IndexAction">
+            <result type="velocity">
+                <param name="contentType">text/html</param>
+                <param name="location">/com/jiae/iseer/template/index/index.vm</param>
+            </result>
+        </action>
+    </package>
+      
+</struts>

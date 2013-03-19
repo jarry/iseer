@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<!--
+// path: WEB-INF/web.xml
+// description:
+// WebOS项目配置文件
+// 1) 配置struts、hibernate拦截器[选]
+// 2) 配置spring监听器
+// 3) 配置spring 字符过滤器、velocity过滤器
+// 4) 配置出错页面
+// 5) 配置目录浏览
+// 6) 配置会话超时
+// @author jarryli@gmail.com
+// @date 2011-9-15
+-->
+    <display-name>Iseer Project</display-name>
+
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>petclinic.root</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>lazyLoadingFilter</filter-name>
+        <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+        <init-param>
+            <param-name>singleSession</param-name>
+            <param-value>true</param-value>
+       </init-param>
+    </filter>
+
+    <!-- solve Hibernate lazy loading problem for all action. 
+    load the setting before  struts2 filter-mapping
+    -->
+    <filter-mapping>
+        <filter-name>lazyLoadingFilter</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+    <!-- struts2.2.3 -->
+    <filter>
+        <filter-name>struts2</filter-name>
+        <!--
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+        -->
+        <filter-class>com.jiae.iseer.basic.filter.MyStrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- springframework3.0.6 -->
+     <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:applicationContext*.xml</param-value>
+    </context-param>
+    <context-param>  
+          <param-name>log4jConfigLocation</param-name>  
+          <param-value>classpath:log4j.properties</param-value>  
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>     
+    <listener>   
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>    
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+    
+    <!-- velocity-1.7 -->
+    <servlet>
+        <servlet-name>velocityView</servlet-name>
+        <servlet-class>org.apache.velocity.tools.view.servlet.VelocityViewServlet</servlet-class>
+        <init-param>
+            <param-name>org.apache.velocity.toolbox</param-name>
+            <param-value>/WEB-INF/classes/toolbox.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>org.apache.velocity.properties</param-name>
+            <param-value>/WEB-INF/classes/velocity.properties</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>velocityView</servlet-name>
+        <url-pattern>*.vm</url-pattern>
+    </servlet-mapping>
+    
+    <!-- CharacterEncodingFilter for Chinese -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <!--<filter-class>com.jiae.iseer.basic.filter.MyCharacterEncodingFilter</filter-class>-->
+        <init-param>
+          <param-name>encoding</param-name>
+          <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>  
+            <param-name>forceEncoding</param-name>  
+            <param-value>true</param-value>
+        </init-param>
+      </filter>
+    <filter-mapping> 
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- default page set -->
+    <welcome-file-list>
+        <welcome-file>index.action</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- error page -->
+    <error-page>  
+       <error-code>404</error-code>  
+       <location>/error/nofile.jsp</location> 
+    </error-page> 
+    <error-page>
+       <error-code>500</error-code>  
+       <location>/error/error.jsp</location>
+    </error-page> 
+    <error-page>
+       <error-code>403</error-code>  
+       <location>/error/forbidden.jsp</location>
+    </error-page>   
+    <error-page>
+       <exception-type>java.lang.NullPointerException</exception-type>
+       <location>/error/null.jsp</location>
+    </error-page>
+
+    <!-- display or forbid to list -->
+    <context-param>
+       <param-name>listings</param-name>
+       <param-value>true</param-value>
+    </context-param> 
+    
+    <!-- timeout set -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+</web-app>

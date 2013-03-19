@@ -1,0 +1,20 @@
+#parse("/com/jiae/iseer/template/vm/header.vm")
+<div class="wrapper wrapper-list">
+<table>
+    <th>id</th>
+    <th>name</th>
+    <th>password</th>
+    <th>createTime</th>
+#foreach ($user in $userList)
+    <tr>
+        <td>$user.userId</td>
+        <td>$user.name</td>
+        <td>$user.password</td>
+        <td>$user.createTime</td>
+    </tr>
+#end
+</table>
+<h1>1号用户</h1>
+$user
+</div>
+#parse("/com/jiae/iseer/template/vm/footer.vm")

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="iseer Include CSS Files Copy" default="Copy CSS" basedir=".">
+    <property name="root-path" value="../../.." />
+    <property name="fe-path" value="../.." />
+    <property name="css-src-path" value="${fe-path}/css-src" />
+    <property name="css-run-path" value="${root-path}/static/css" />
+    
+       <target name="Copy CSS" depends="">
+        <echo message="Delete ${css-run-path} Files Begin" />       
+        <delete>
+             <fileset dir="${css-run-path}/" includes="**/*.css"/>
+        </delete>       
+        <echo message="Delete ${css-run-path} Files Begin" />
+        
+        <echo message="Copy CSS File Begin" />
+            <copy todir="${css-run-path}/">
+            <fileset dir="${css-src-path}/" includes="*.css"></fileset>
+            <!--
+                <fileset dir="${js-src-path}/" includes="**/*.js"></fileset>
+                -->
+                <mapper type="glob" from="*.css" to="*.css" />
+            </copy>
+       
+            <echo message="Copy Include CSS Files Finished" />
+       </target>
+ 
+</project>

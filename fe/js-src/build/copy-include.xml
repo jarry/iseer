@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+function:
+    1. copy including files of JS  to ${js-run-path} from ${js-src-path}
+
+author: lichunping
+mail: JarryLi@gmail.com 
+-->
+<project name="iseer Include JS Files Copy" default="Copy JS" basedir=".">
+    <property name="root-path" value="../../.." />
+    <property name="fe-path" value="../.." />
+    <property name="js-src-path" value="${fe-path}/js-src" />
+    <property name="js-run-path" value="${root-path}/static/js" />
+        
+           <target name="Copy JS" depends="">           
+        <echo message="Delete ${js-run-path} Files Begin" />
+                <!-- if the file exsiting delete first -->              
+                <delete>
+                         <fileset dir="${js-run-path}/" includes="**/*.js">
+                            <!--<exclude name="core/**/*.*"/>-->
+                        </fileset>
+                </delete>
+            <echo message="Delete ${js-run-path} Files End" />              
+                
+                
+                        <echo message="Copy JS File Begin" />
+                        <copy todir="${js-run-path}/">
+
+                        <fileset dir="${js-src-path}/" includes="*.js"></fileset>
+                        <!-- copy js file in all sub directory
+                           <fileset dir="${js-src-path}/" includes="**/*.js"></fileset>
+                        -->
+                            <mapper type="glob" from="*.js" to="*.js" />
+                        </copy>
+
+                        <echo message="Copy JS File Finished" />
+           </target>
+ 
+</project>

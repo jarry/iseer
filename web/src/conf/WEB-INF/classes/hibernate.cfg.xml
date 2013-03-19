@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!--
+// path: WEB-INF/classes/hibernate.cfg.xml
+// description:
+// hibernate配置文件，由于项目采用注解方式映射，本文件用于测试
+// 实际项目中用spring调用数据源，并使用hibernate注解方式映射数据库
+// 1) 配置数据源
+// 2) 配置缓存
+// 3) 引入映射文件
+// @author jarryli@gmail.com
+// @date 2011-9-15
+-->
+
+<hibernate-configuration>
+    <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>    
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/webos?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"></property>
+    
+    <property name="hibernate.show_sql">true</property> 
+    <property name="hibernate.format_sql">true</property> 
+    
+    <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+    <property name="hibernate.cache.use_query_cache">true</property>
+    <!--
+    <property name="current_session_context_class">thread</property>
+    -->
+    <property name="current_session_context_class">jta</property>
+
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.c3p0.validate">true</property>  
+         
+    <!-- //mapping resource files -->
+
+    <mapping resource="com/baidu/webos/test/conf/User.hbm.xml"/>    
+    <!--
+    <property name="mappingResources">   
+            <list>   
+                <value>com/baidu/webos/test/conf/User.hbm.xml</value>  
+            </list>   
+     </property>
+      -->
+    </session-factory>   
+    
+   
+<!--
+<session-factory name="webos">  
+// 如增加name会从JNDI查找数据源  
+// 本例使用hibernate数据库
+-->    
+<!--    
+// 如果采用JNDI数据源，需要
+// 1. 在tomcat项目配置文件如server.xml中增加
+    <Context path="/" reloadable="true"  docBase="/home/work/webapp/webos" 
+    workDir="work/Catalina/localhost/webos"  crossContext="true" >
+        <Resource
+         name="jdbc/webos"
+         auth="Container"
+         type="javax.sql.DataSource"
+         maxActive="100" maxIdle="30" maxWait="10000"
+         username="webos" password="webos123"
+         driverClassName="com.mysql.jdbc.Driver"
+         url="jdbc:mysql://localhost:3306/webos?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8"
+         />
+ </Context>
+// 2. 在项目web.xml中增加JNDI数据源
+ <resource-ref> 
+             <description>DB Connection</description> 
+             <res-ref-name>jdbc/webos</res-ref-name> 
+             <res-type>javax.sql.DataSource</res-type> 
+             <res-auth>Container</res-auth> 
+    </resource-ref> 
+// 3. 在hibernate.cfg.xml文件中配置session-fatory       
+<session-factory> 
+    <property name="connection.datasource">java:comp/env/jdbc/webos</property> 
+    <property name="show_sql">true</property> 
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property> 
+     <mapping resource="com/baidu/webos/test/conf/User.hbm.xml" /> 
+</session-factory>     
+-->	
+</hibernate-configuration>

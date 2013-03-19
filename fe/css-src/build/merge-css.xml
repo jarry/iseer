@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+merge multilateral files or single file by requirement
+-->
+<project name="iseer CSS Files Merge" default="Merge CSS" basedir=".">
+    <property name="root-path" value="../../.." />
+    <property name="fe-path" value="../.." />
+    <property name="css-src-path" value="${fe-path}/css-src" />
+    <property name="css-run-path" value="${root-path}/static/css" />
+
+    <target name="Merge CSS" depends="">
+        <echo message="merge iseer.css Begin" />
+        <concat destfile="${css-run-path}/iseer.css" encoding="utf-8">
+
+            <fileset dir="${css-src-path}/" includes="core/core.css" />
+            <fileset dir="${css-src-path}/" includes="common/common.css" />
+            <fileset dir="${css-src-path}/" includes="search/search.css" />
+
+            <!--
+            <fileset dir="${css-src-path}/" includes="common/global.css" />
+            -->
+
+        </concat>
+        <echo message="Merge iseer.css Finished" />
+    </target>
+
+</project>

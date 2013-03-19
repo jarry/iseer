@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/list/src/main/java"/>
+	<classpathentry excluding="classes/" kind="src" path="src/conf/WEB-INF"/>
+	<classpathentry kind="src" path="src/lire/src/main/resources"/>
+	<classpathentry kind="src" path="src/lire/src/main/java"/>
+	<classpathentry kind="src" path="src/search/src/main/java"/>
+	<classpathentry kind="src" path="src/search/src/main/resources"/>
+	<classpathentry kind="src" path="src/common/src/test/java"/>
+	<classpathentry kind="src" path="src/conf/WEB-INF/classes"/>
+	<classpathentry kind="src" path="src/index/src/main/java"/>
+	<classpathentry kind="src" path="src/index/src/main/resources"/>
+	<classpathentry kind="src" path="src/core/src/main/resources"/>
+	<classpathentry kind="src" path="src/list/src/main/resources"/>
+	<classpathentry kind="src" path="src/core/src/main/java"/>
+	<classpathentry kind="src" path="src/common/src/main/resources"/>
+	<classpathentry kind="src" path="src/common/src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_02">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Junit Lib"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="output" path="webapp/WEB-INF/classes"/>
+</classpath>

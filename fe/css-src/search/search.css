@@ -1,0 +1,18 @@
+/*
+ * Copyright 2012 Jiae.com All rights reserved.
+ * 
+ * file: search.css
+ * path: css-src/search/
+ * description: search css，包括search以及详情页相关，不含基本和UI控件
+ *              基本规则：
+ *              - 所有class都使用classname，而不采用id。没有#Header样式
+ *              - 全局性的唯一的大的布局块采用首字母大写，如:.Header .searchWrapper, 其他classname均为小写，以下划线连接，如.search 
+ *              - 通过全局性唯一的块样式+标签来定义多级样式，减少子节点的classname
+ *              - 基础字体字号单独指定，对通用的html标签重定义样式，同时一个标签尽量控制在4个样式名称内
+ *              - 语义化以及具体命名、格式规范、注意事项等详细内容参见《CSS编码规范》
+ * 
+ * author: jarryli@gmail.com
+ * date: 2012-4-5
+ */
+@charset 'utf-8';
+

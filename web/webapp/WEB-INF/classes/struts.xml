@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!--
+    // path: WEB-INF/classes/struts.xml
+    // description:
+    // struts配置文件
+    // 1) 配置拦截器，防止漏洞，默认配置springSideStack
+    // 2) 引入struts控制文件
+    // @author jarryli@gmail.com
+    // @date 2011-9-15
+    -->
+    
+    <!--
+    <package name="default" namespace="/" extends="struts-default">
+
+    <result-types>     
+        <result-type name="velocity" default="true" class="com.jiae.iseer.basic.velocity.FlexibleVelocityResult"/>
+    </result-types>
+    
+     <interceptors>
+         <interceptor-stack name="defaultStack">
+            <interceptor-ref name="params">
+                    <param name="excludeParams">.*[\\/\(\)#@'].*</param>
+            </interceptor-ref>
+        </interceptor-stack>
+     </interceptors>
+     <default-interceptor-ref name="defaultStack" />
+
+      <default-action-ref name="default" />
+        <action name="default">
+            <result type="redirectAction">
+                <param name="actionName">index</param>
+                <param name="namespace">/</param>
+            </result>
+        </action>
+
+    </package>
+    -->
+
+    <package name="default" namespace="/" extends="struts-default" >
+
+    <result-types>     
+        <result-type name="velocity" default="true" class="com.jiae.iseer.basic.velocity.FlexibleVelocityResult"/>
+    </result-types>
+        
+     <interceptors>
+         <interceptor-stack name="springSideStack">
+             
+            <interceptor-ref name="params">
+                <!-- filter special character. it's serious bugs -->
+                    <param name="excludeParams">.*[\\/\(\)#@'].*</param>
+            </interceptor-ref>
+            
+            <interceptor-ref name="servletConfig" />
+            <interceptor-ref name="prepare" />
+            <interceptor-ref name="i18n" />
+            <interceptor-ref name="chain" />
+            <interceptor-ref name="modelDriven" />
+            <interceptor-ref name="checkbox" />
+            <interceptor-ref name="staticParams" />
+            <interceptor-ref name="params">
+                <param name="excludeParams">.*[\\/\(\)#@'].*</param>
+            </interceptor-ref>
+            <interceptor-ref name="conversionError" />
+            <interceptor-ref name="validation" />
+            <!--
+            <interceptor-ref name="formLog" />
+            <interceptor-ref name="jsonWorkflow" />
+            <interceptor-ref name="busiLogic" />
+            -->
+            </interceptor-stack>
+            
+     </interceptors>
+     <!--
+     <default-interceptor-ref name="defaultStack" />
+     -->
+     <default-interceptor-ref name="springSideStack" />
+
+      <default-action-ref name="default" />
+        <!--
+        <action name="default">
+            <result type="redirectAction">
+                <param name="actionName"></param>
+                <param name="namespace">/</param>
+            </result>
+        </action>
+         -->
+    </package>
+
+    <include file="struts-index.xml"/>
+    <include file="struts-common.xml"/>
+    <include file="struts-search.xml"/>
+    <include file="struts-list.xml"/> 
+    <!-- Add packages here -->
+    
+
+</struts>

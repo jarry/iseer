@@ -1,0 +1,13 @@
+{
+    "state": #if ($imageInfo['name']) true #else false #end, 
+    "data": {
+        #if ($imageInfo['name'])
+        "image": {
+            "name": "$imageInfo['name']",
+            "width": $imageInfo["width"],
+            "height": $imageInfo["height"],
+            "type": "$imageInfo['type']"
+        }
+        #end
+    }
+}

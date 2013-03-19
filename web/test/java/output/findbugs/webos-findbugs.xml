@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://findbugs.sourceforge.net/xsl/default.xsl"?>
+
+<BugCollection version="1.3.9" sequence="0" timestamp="1319699506183" analysisTimestamp="1319699507402" release="">
+  <Project projectName="">
+    <Jar>E:\svnwork\webos\webapp\WEB-INF\classes</Jar>
+    <AuxClasspathEntry>E:\svnwork\webos\tools\findbugs-1.3.9\lib\findbugs-ant.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\antlr-2.7.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\aopalliance.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\asm-3.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\asm-commons-3.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\asm-tree-3.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\avalon-logkit-2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-beanutils-1.7.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-codec-1.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-collections-3.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-digester-1.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-fileupload-1.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-io-2.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-lang-2.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-lang-2.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\commons-logging-1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\ehcache-core-2.4.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\ehcache-terracotta-2.4.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\freemarker-2.3.16.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\hibernate-jpa-2.0-api-1.0.1.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\hibernate3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\httpclient-4.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\httpclient-cache-4.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\httpcore-4.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\httpmime-4.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\javassist-3.11.0.GA.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\jdom-1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\jstl-1.2-sources.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\jstl-1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\jta-1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\log4j-1.2.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\maven-ant-tasks-2.0.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\mysql-connector-java-5.1.18-bin.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\ognl-3.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.aop-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.asm-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.aspects-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.beans-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.context-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.context.support-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.core-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.expression-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.instrument-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.instrument.tomcat-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.jdbc-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.jms-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.orm-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.oxm-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.test-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.transaction-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.web-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.web.portlet-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.web.servlet-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\org.springframework.web.struts-3.1.0.RC1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\oro-2.0.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\slf4j-api-1.6.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\slf4j-log4j12-1.6.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\struts2-convention-plugin-2.2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\struts2-core-2.2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\struts2-spring-plugin-2.2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\velocity-1.7-dep.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\velocity-1.7.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\velocity-tools-2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\velocity-tools-view-2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\werken-xpath-0.9.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\svnwork\webos\webapp\WEB-INF\lib\xwork-core-2.2.3.jar</AuxClasspathEntry>
+    <SrcDir>E:\svnwork\webos\src</SrcDir>
+  </Project>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" instanceHash="3fd86d333c5761bee61418e1cd133c92" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.baidu.webos.action.app.AppAction.logger isn&apos;t final but should be</LongMessage>
+    <Class classname="com.baidu.webos.action.app.AppAction" primary="true">
+      <SourceLine classname="com.baidu.webos.action.app.AppAction" start="32" end="87" sourcefile="AppAction.java" sourcepath="com/baidu/webos/action/app/AppAction.java">
+        <Message>At AppAction.java:[lines 32-87]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.action.app.AppAction</Message>
+    </Class>
+    <Field classname="com.baidu.webos.action.app.AppAction" name="logger" signature="Lorg/slf4j/Logger;" isStatic="true" primary="true">
+      <SourceLine classname="com.baidu.webos.action.app.AppAction" sourcefile="AppAction.java" sourcepath="com/baidu/webos/action/app/AppAction.java">
+        <Message>In AppAction.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.action.app.AppAction.logger</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.action.app.AppAction" primary="true" start="38" end="38" startBytecode="5" endBytecode="5" sourcefile="AppAction.java" sourcepath="com/baidu/webos/action/app/AppAction.java">
+      <Message>At AppAction.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="47664484327532e9f266e4175e19c958" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class com.baidu.webos.action.app.AppAction defines non-transient non-serializable instance field appService</LongMessage>
+    <Class classname="com.baidu.webos.action.app.AppAction" primary="true">
+      <SourceLine classname="com.baidu.webos.action.app.AppAction" start="32" end="87" sourcefile="AppAction.java" sourcepath="com/baidu/webos/action/app/AppAction.java">
+        <Message>At AppAction.java:[lines 32-87]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.action.app.AppAction</Message>
+    </Class>
+    <Field classname="com.baidu.webos.action.app.AppAction" name="appService" signature="Lcom/baidu/webos/service/app/AppService;" isStatic="false" primary="true">
+      <SourceLine classname="com.baidu.webos.action.app.AppAction" sourcefile="AppAction.java" sourcepath="com/baidu/webos/action/app/AppAction.java">
+        <Message>In AppAction.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.action.app.AppAction.appService</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.action.app.AppAction" sourcefile="AppAction.java" sourcepath="com/baidu/webos/action/app/AppAction.java" synthetic="true">
+      <Message>In AppAction.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="3a6f1833318f79e04346a908fbd15548" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class com.baidu.webos.action.app.AppSearchAction defines non-transient non-serializable instance field appSearchService</LongMessage>
+    <Class classname="com.baidu.webos.action.app.AppSearchAction" primary="true">
+      <SourceLine classname="com.baidu.webos.action.app.AppSearchAction" start="34" end="51" sourcefile="AppSearchAction.java" sourcepath="com/baidu/webos/action/app/AppSearchAction.java">
+        <Message>At AppSearchAction.java:[lines 34-51]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.action.app.AppSearchAction</Message>
+    </Class>
+    <Field classname="com.baidu.webos.action.app.AppSearchAction" name="appSearchService" signature="Lcom/baidu/webos/service/app/AppSearchService;" isStatic="false" primary="true">
+      <SourceLine classname="com.baidu.webos.action.app.AppSearchAction" sourcefile="AppSearchAction.java" sourcepath="com/baidu/webos/action/app/AppSearchAction.java">
+        <Message>In AppSearchAction.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.action.app.AppSearchAction.appSearchService</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.action.app.AppSearchAction" sourcefile="AppSearchAction.java" sourcepath="com/baidu/webos/action/app/AppSearchAction.java" synthetic="true">
+      <Message>In AppSearchAction.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="5430b43bf78b9a7259efef69af1c4e0a" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class com.baidu.webos.action.appStore.AppStoreAction defines non-transient non-serializable instance field appStoreService</LongMessage>
+    <Class classname="com.baidu.webos.action.appStore.AppStoreAction" primary="true">
+      <SourceLine classname="com.baidu.webos.action.appStore.AppStoreAction" start="31" end="35" sourcefile="AppStoreAction.java" sourcepath="com/baidu/webos/action/appStore/AppStoreAction.java">
+        <Message>At AppStoreAction.java:[lines 31-35]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.action.appStore.AppStoreAction</Message>
+    </Class>
+    <Field classname="com.baidu.webos.action.appStore.AppStoreAction" name="appStoreService" signature="Lcom/baidu/webos/service/appStore/AppStoreService;" isStatic="false" primary="true">
+      <SourceLine classname="com.baidu.webos.action.appStore.AppStoreAction" sourcefile="AppStoreAction.java" sourcepath="com/baidu/webos/action/appStore/AppStoreAction.java">
+        <Message>In AppStoreAction.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.action.appStore.AppStoreAction.appStoreService</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.action.appStore.AppStoreAction" sourcefile="AppStoreAction.java" sourcepath="com/baidu/webos/action/appStore/AppStoreAction.java" synthetic="true">
+      <Message>In AppStoreAction.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="4b64108a626bc8cfe611134486f6b89c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class com.baidu.webos.action.baseApp.BaseAppAction defines non-transient non-serializable instance field baseAppService</LongMessage>
+    <Class classname="com.baidu.webos.action.baseApp.BaseAppAction" primary="true">
+      <SourceLine classname="com.baidu.webos.action.baseApp.BaseAppAction" start="38" end="100" sourcefile="BaseAppAction.java" sourcepath="com/baidu/webos/action/baseApp/BaseAppAction.java">
+        <Message>At BaseAppAction.java:[lines 38-100]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.action.baseApp.BaseAppAction</Message>
+    </Class>
+    <Field classname="com.baidu.webos.action.baseApp.BaseAppAction" name="baseAppService" signature="Lcom/baidu/webos/service/baseApp/BaseAppService;" isStatic="false" primary="true">
+      <SourceLine classname="com.baidu.webos.action.baseApp.BaseAppAction" sourcefile="BaseAppAction.java" sourcepath="com/baidu/webos/action/baseApp/BaseAppAction.java">
+        <Message>In BaseAppAction.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.action.baseApp.BaseAppAction.baseAppService</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.action.baseApp.BaseAppAction" sourcefile="BaseAppAction.java" sourcepath="com/baidu/webos/action/baseApp/BaseAppAction.java" synthetic="true">
+      <Message>In BaseAppAction.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="82809972224fe37615ecc8843079a89f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class com.baidu.webos.action.desktop.DesktopAction defines non-transient non-serializable instance field desktopService</LongMessage>
+    <Class classname="com.baidu.webos.action.desktop.DesktopAction" primary="true">
+      <SourceLine classname="com.baidu.webos.action.desktop.DesktopAction" start="30" end="67" sourcefile="DesktopAction.java" sourcepath="com/baidu/webos/action/desktop/DesktopAction.java">
+        <Message>At DesktopAction.java:[lines 30-67]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.action.desktop.DesktopAction</Message>
+    </Class>
+    <Field classname="com.baidu.webos.action.desktop.DesktopAction" name="desktopService" signature="Lcom/baidu/webos/service/desktop/DesktopService;" isStatic="false" primary="true">
+      <SourceLine classname="com.baidu.webos.action.desktop.DesktopAction" sourcefile="DesktopAction.java" sourcepath="com/baidu/webos/action/desktop/DesktopAction.java">
+        <Message>In DesktopAction.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.action.desktop.DesktopAction.desktopService</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.action.desktop.DesktopAction" sourcefile="DesktopAction.java" sourcepath="com/baidu/webos/action/desktop/DesktopAction.java" synthetic="true">
+      <Message>In DesktopAction.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" abbrev="Se" category="BAD_PRACTICE" instanceHash="877210958d6ca204bcfb5779f7f0fe45" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Non-transient non-serializable instance field in serializable class</ShortMessage>
+    <LongMessage>Class com.baidu.webos.action.widget.WidgetAction defines non-transient non-serializable instance field widgetService</LongMessage>
+    <Class classname="com.baidu.webos.action.widget.WidgetAction" primary="true">
+      <SourceLine classname="com.baidu.webos.action.widget.WidgetAction" start="44" end="118" sourcefile="WidgetAction.java" sourcepath="com/baidu/webos/action/widget/WidgetAction.java">
+        <Message>At WidgetAction.java:[lines 44-118]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.action.widget.WidgetAction</Message>
+    </Class>
+    <Field classname="com.baidu.webos.action.widget.WidgetAction" name="widgetService" signature="Lcom/baidu/webos/service/widget/WidgetService;" isStatic="false" primary="true">
+      <SourceLine classname="com.baidu.webos.action.widget.WidgetAction" sourcefile="WidgetAction.java" sourcepath="com/baidu/webos/action/widget/WidgetAction.java">
+        <Message>In WidgetAction.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.action.widget.WidgetAction.widgetService</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.action.widget.WidgetAction" sourcefile="WidgetAction.java" sourcepath="com/baidu/webos/action/widget/WidgetAction.java" synthetic="true">
+      <Message>In WidgetAction.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" instanceHash="ab02b841d3cc83d3de6d554d528ee54e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.baidu.webos.basic.utils.StringUtils.mailPattern isn&apos;t final but should be</LongMessage>
+    <Class classname="com.baidu.webos.basic.utils.StringUtils" primary="true">
+      <SourceLine classname="com.baidu.webos.basic.utils.StringUtils" start="32" end="639" sourcefile="StringUtils.java" sourcepath="com/baidu/webos/basic/utils/StringUtils.java">
+        <Message>At StringUtils.java:[lines 32-639]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.basic.utils.StringUtils</Message>
+    </Class>
+    <Field classname="com.baidu.webos.basic.utils.StringUtils" name="mailPattern" signature="Ljava/util/regex/Pattern;" isStatic="true" primary="true">
+      <SourceLine classname="com.baidu.webos.basic.utils.StringUtils" sourcefile="StringUtils.java" sourcepath="com/baidu/webos/basic/utils/StringUtils.java">
+        <Message>In StringUtils.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.basic.utils.StringUtils.mailPattern</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.basic.utils.StringUtils" primary="true" start="537" end="537" startBytecode="13" endBytecode="13" sourcefile="StringUtils.java" sourcepath="com/baidu/webos/basic/utils/StringUtils.java">
+      <Message>At StringUtils.java:[line 537]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" instanceHash="87c9729eeb1c33bb8efe1e56d3032d6" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.baidu.webos.basic.utils.StringUtils.userNamePattern isn&apos;t final but should be</LongMessage>
+    <Class classname="com.baidu.webos.basic.utils.StringUtils" primary="true">
+      <SourceLine classname="com.baidu.webos.basic.utils.StringUtils" start="32" end="639" sourcefile="StringUtils.java" sourcepath="com/baidu/webos/basic/utils/StringUtils.java">
+        <Message>At StringUtils.java:[lines 32-639]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.basic.utils.StringUtils</Message>
+    </Class>
+    <Field classname="com.baidu.webos.basic.utils.StringUtils" name="userNamePattern" signature="Ljava/util/regex/Pattern;" isStatic="true" primary="true">
+      <SourceLine classname="com.baidu.webos.basic.utils.StringUtils" sourcefile="StringUtils.java" sourcepath="com/baidu/webos/basic/utils/StringUtils.java">
+        <Message>In StringUtils.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.basic.utils.StringUtils.userNamePattern</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.basic.utils.StringUtils" primary="true" start="622" end="622" startBytecode="4131" endBytecode="4131" sourcefile="StringUtils.java" sourcepath="com/baidu/webos/basic/utils/StringUtils.java">
+      <Message>At StringUtils.java:[line 622]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" priority="1" abbrev="Nm" category="BAD_PRACTICE" instanceHash="116ccfeaa081ba43b5a38b7b69c68a21" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class names shouldn&apos;t shadow simple name of superclass</ShortMessage>
+    <LongMessage>The class name com.baidu.webos.basic.utils.StringUtils shadows the simple name of the superclass org.apache.commons.lang.StringUtils</LongMessage>
+    <Class classname="com.baidu.webos.basic.utils.StringUtils" primary="true">
+      <SourceLine classname="com.baidu.webos.basic.utils.StringUtils" start="32" end="639" sourcefile="StringUtils.java" sourcepath="com/baidu/webos/basic/utils/StringUtils.java">
+        <Message>At StringUtils.java:[lines 32-639]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.basic.utils.StringUtils</Message>
+    </Class>
+    <Class classname="org.apache.commons.lang.StringUtils">
+      <SourceLine classname="org.apache.commons.lang.StringUtils" start="166" end="5961" sourcefile="StringUtils.java" sourcepath="org/apache/commons/lang/StringUtils.java">
+        <Message>At StringUtils.java:[lines 166-5961]</Message>
+      </SourceLine>
+      <Message>In class org.apache.commons.lang.StringUtils</Message>
+    </Class>
+    <SourceLine classname="com.baidu.webos.basic.utils.StringUtils" start="32" end="639" sourcefile="StringUtils.java" sourcepath="com/baidu/webos/basic/utils/StringUtils.java" synthetic="true">
+      <Message>At StringUtils.java:[lines 32-639]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" abbrev="DLS" category="STYLE" instanceHash="b0146fe90c5ce3b6117842cefda01210" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to encoding in com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl.getContentByUrl(String)</LongMessage>
+    <Class classname="com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl" primary="true">
+      <SourceLine classname="com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl" start="44" end="135" sourcefile="BaseAppDaoImpl.java" sourcepath="com/baidu/webos/dao/impl/baseApp/BaseAppDaoImpl.java">
+        <Message>At BaseAppDaoImpl.java:[lines 44-135]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl</Message>
+    </Class>
+    <Method classname="com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl" name="getContentByUrl" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl" start="58" end="94" startBytecode="0" endBytecode="81" sourcefile="BaseAppDaoImpl.java" sourcepath="com/baidu/webos/dao/impl/baseApp/BaseAppDaoImpl.java"/>
+      <Message>In method com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl.getContentByUrl(String)</Message>
+    </Method>
+    <LocalVariable name="encoding" register="10" pc="122" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named encoding</Message>
+    </LocalVariable>
+    <SourceLine classname="com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl" primary="true" start="77" end="77" startBytecode="120" endBytecode="120" sourcefile="BaseAppDaoImpl.java" sourcepath="com/baidu/webos/dao/impl/baseApp/BaseAppDaoImpl.java">
+      <Message>At BaseAppDaoImpl.java:[line 77]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="encoding"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" instanceHash="84897cf8fe29b6542bd358c36ea24272" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.baidu.webos.junit.webservice.LogTest.log4j isn&apos;t final but should be</LongMessage>
+    <Class classname="com.baidu.webos.junit.webservice.LogTest" primary="true">
+      <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" start="31" end="87" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+        <Message>At LogTest.java:[lines 31-87]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.junit.webservice.LogTest</Message>
+    </Class>
+    <Field classname="com.baidu.webos.junit.webservice.LogTest" name="log4j" signature="Lorg/apache/log4j/Logger;" isStatic="true" primary="true">
+      <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+        <Message>In LogTest.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.junit.webservice.LogTest.log4j</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" primary="true" start="33" end="33" startBytecode="5" endBytecode="5" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+      <Message>At LogTest.java:[line 33]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" instanceHash="6491daaa2e7f1db60d29a8b3dd23e5fe" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.baidu.webos.junit.webservice.LogTest.logger isn&apos;t final but should be</LongMessage>
+    <Class classname="com.baidu.webos.junit.webservice.LogTest" primary="true">
+      <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" start="31" end="87" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+        <Message>At LogTest.java:[lines 31-87]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.junit.webservice.LogTest</Message>
+    </Class>
+    <Field classname="com.baidu.webos.junit.webservice.LogTest" name="logger" signature="Lorg/slf4j/Logger;" isStatic="true" primary="true">
+      <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+        <Message>In LogTest.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.junit.webservice.LogTest.logger</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" primary="true" start="36" end="36" startBytecode="21" endBytecode="21" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+      <Message>At LogTest.java:[line 36]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" instanceHash="7e8b1c987a53e0df4e996c42360c3ed8" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.baidu.webos.junit.webservice.LogTest.loggerFactory isn&apos;t final but should be</LongMessage>
+    <Class classname="com.baidu.webos.junit.webservice.LogTest" primary="true">
+      <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" start="31" end="87" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+        <Message>At LogTest.java:[lines 31-87]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.junit.webservice.LogTest</Message>
+    </Class>
+    <Field classname="com.baidu.webos.junit.webservice.LogTest" name="loggerFactory" signature="Lorg/slf4j/Logger;" isStatic="true" primary="true">
+      <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+        <Message>In LogTest.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.junit.webservice.LogTest.loggerFactory</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.junit.webservice.LogTest" primary="true" start="35" end="35" startBytecode="13" endBytecode="13" sourcefile="LogTest.java" sourcepath="com/baidu/webos/junit/webservice/LogTest.java">
+      <Message>At LogTest.java:[line 35]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE" instanceHash="d7b0ce8d92dc967f32da7c506c9ddbe5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Field isn&apos;t final but should be</ShortMessage>
+    <LongMessage>com.baidu.webos.service.impl.widget.WidgetServiceImpl.logger isn&apos;t final but should be</LongMessage>
+    <Class classname="com.baidu.webos.service.impl.widget.WidgetServiceImpl" primary="true">
+      <SourceLine classname="com.baidu.webos.service.impl.widget.WidgetServiceImpl" start="36" end="92" sourcefile="WidgetServiceImpl.java" sourcepath="com/baidu/webos/service/impl/widget/WidgetServiceImpl.java">
+        <Message>At WidgetServiceImpl.java:[lines 36-92]</Message>
+      </SourceLine>
+      <Message>In class com.baidu.webos.service.impl.widget.WidgetServiceImpl</Message>
+    </Class>
+    <Field classname="com.baidu.webos.service.impl.widget.WidgetServiceImpl" name="logger" signature="Lorg/apache/log4j/Logger;" isStatic="true" primary="true">
+      <SourceLine classname="com.baidu.webos.service.impl.widget.WidgetServiceImpl" sourcefile="WidgetServiceImpl.java" sourcepath="com/baidu/webos/service/impl/widget/WidgetServiceImpl.java">
+        <Message>In WidgetServiceImpl.java</Message>
+      </SourceLine>
+      <Message>Field com.baidu.webos.service.impl.widget.WidgetServiceImpl.logger</Message>
+    </Field>
+    <SourceLine classname="com.baidu.webos.service.impl.widget.WidgetServiceImpl" primary="true" start="38" end="38" startBytecode="5" endBytecode="5" sourcefile="WidgetServiceImpl.java" sourcepath="com/baidu/webos/service/impl/widget/WidgetServiceImpl.java">
+      <Message>At WidgetServiceImpl.java:[line 38]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugPattern type="NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" abbrev="Nm" category="BAD_PRACTICE">
+    <ShortDescription>Class names shouldn&apos;t shadow simple name of superclass</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class has a simple name that is identical to that of its superclass, except
+that its superclass is in a different package (e.g., <code>alpha.Foo</code> extends <code>beta.Foo</code>). 
+This can be exceptionally confusing, create lots of situations in which you have to look at import statements
+to resolve references and creates many
+opportunities to accidently define methods that do not override methods in their superclasses.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SE_BAD_FIELD" abbrev="Se" category="BAD_PRACTICE">
+    <ShortDescription>Non-transient non-serializable instance field in serializable class</ShortDescription>
+    <Details><![CDATA[
+
+<p> This Serializable class defines a non-primitive instance field which is neither transient,
+Serializable, or <code>java.lang.Object</code>, and does not appear to implement
+the <code>Externalizable</code> interface or the
+<code>readObject()</code> and <code>writeObject()</code> methods.&nbsp;
+Objects of this class will not be deserialized correctly if a non-Serializable
+object is stored in this field.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because FindBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_SHOULD_BE_FINAL" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Field isn&apos;t final but should be</ShortDescription>
+    <Details><![CDATA[
+
+   <p>
+ A mutable static field could be changed by malicious code or
+        by accident from another package.
+        The field could be made final to avoid
+        this vulnerability.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="Nm">
+    <Description>Confusing method name</Description>
+  </BugCode>
+  <BugCode abbrev="Se">
+    <Description>Incorrect definition of Serializable class</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="218">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="11">
+    <MissingClass>javax.servlet.ServletContext</MissingClass>
+    <MissingClass>javax.servlet.http.HttpServlet</MissingClass>
+    <MissingClass>javax.servlet.http.HttpServletRequest</MissingClass>
+    <MissingClass>javax.servlet.http.HttpServletResponse</MissingClass>
+    <MissingClass>javax.servlet.jsp.JspFactory</MissingClass>
+    <MissingClass>javax.servlet.jsp.PageContext</MissingClass>
+    <MissingClass>junit.framework.TestCase</MissingClass>
+    <MissingClass>org.junit.After</MissingClass>
+    <MissingClass>org.junit.Before</MissingClass>
+    <MissingClass>org.junit.Test</MissingClass>
+    <MissingClass>org.junit.runner.RunWith</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Thu, 27 Oct 2011 15:11:46 +0800" total_classes="41" referenced_classes="165" total_bugs="15" total_size="964" num_packages="30" vm_version="11.3-b02" cpu_seconds="4.98" clock_seconds="3.66" peak_mbytes="57.79" alloc_mbytes="63.56" gc_seconds="0.53" priority_2="7" priority_1="8">
+    <FileStats path="com/baidu/webos/action/app/AppAction.java" bugCount="2" size="37" bugHash="8969d39c4a8363cb01ef2f73cf4a14a3"/>
+    <FileStats path="com/baidu/webos/action/app/AppSearchAction.java" bugCount="1" size="16" bugHash="d82735fb911642714452f84e5230cc15"/>
+    <FileStats path="com/baidu/webos/action/appStore/AppStoreAction.java" bugCount="1" size="8" bugHash="4da17f8d7ca0941b1ac8d023739575f9"/>
+    <FileStats path="com/baidu/webos/action/baseApp/BaseAppAction.java" bugCount="1" size="48" bugHash="8459bc10f491a44bd2b5d4602a3bd15c"/>
+    <FileStats path="com/baidu/webos/action/desktop/DesktopAction.java" bugCount="1" size="16" bugHash="55a3e5e0c82b2ac30e3e524b53d38263"/>
+    <FileStats path="com/baidu/webos/action/index/HelloWorldAction.java" bugCount="0" size="13"/>
+    <FileStats path="com/baidu/webos/action/index/IndexAction.java" bugCount="0" size="14"/>
+    <FileStats path="com/baidu/webos/action/widget/WidgetAction.java" bugCount="1" size="46" bugHash="be8d3787c12cadf2af9c44238b4ac326"/>
+    <FileStats path="com/baidu/webos/basic/test/SpringContextTestCase.java" bugCount="0" size="9"/>
+    <FileStats path="com/baidu/webos/basic/test/SpringTransactionalTestCase.java" bugCount="0" size="17"/>
+    <FileStats path="com/baidu/webos/basic/utils/CharacterCodeUtils.java" bugCount="0" size="31"/>
+    <FileStats path="com/baidu/webos/basic/utils/LoggerUtils.java" bugCount="0" size="84"/>
+    <FileStats path="com/baidu/webos/basic/utils/StringUtils.java" bugCount="3" size="303" bugHash="8c923801717d92f8d59be07935539396"/>
+    <FileStats path="com/baidu/webos/basic/velocity/FlexibleVelocityResult.java" bugCount="0" size="11"/>
+    <FileStats path="com/baidu/webos/dao/app/AppDao.java" bugCount="0" size="2"/>
+    <FileStats path="com/baidu/webos/dao/app/AppSearchDao.java" bugCount="0" size="1"/>
+    <FileStats path="com/baidu/webos/dao/appStore/AppStoreDao.java" bugCount="0" size="1"/>
+    <FileStats path="com/baidu/webos/dao/baseApp/BaseAppDao.java" bugCount="0" size="3"/>
+    <FileStats path="com/baidu/webos/dao/desktop/DesktopDao.java" bugCount="0" size="1"/>
+    <FileStats path="com/baidu/webos/dao/impl/app/AppDaoImpl.java" bugCount="0" size="8"/>
+    <FileStats path="com/baidu/webos/dao/impl/app/AppSearchDaoImpl.java" bugCount="0" size="4"/>
+    <FileStats path="com/baidu/webos/dao/impl/appStore/AppStoreDaoImpl.java" bugCount="0" size="4"/>
+    <FileStats path="com/baidu/webos/dao/impl/baseApp/BaseAppDaoImpl.java" bugCount="1" size="48" bugHash="55f4fd85ba67d08656faaab10626e9aa"/>
+    <FileStats path="com/baidu/webos/dao/impl/desktop/DesktopDaoImpl.java" bugCount="0" size="4"/>
+    <FileStats path="com/baidu/webos/dao/impl/widget/WidgetDaoImpl.java" bugCount="0" size="42"/>
+    <FileStats path="com/baidu/webos/dao/widget/WidgetDao.java" bugCount="0" size="3"/>
+    <FileStats path="com/baidu/webos/junit/webservice/LogTest.java" bugCount="3" size="37" bugHash="1305daa849e4490ff1d28f9fcc36109d"/>
+    <FileStats path="com/baidu/webos/junit/webservice/SpringTest.java" bugCount="0" size="31"/>
+    <FileStats path="com/baidu/webos/service/app/AppSearchService.java" bugCount="0" size="1"/>
+    <FileStats path="com/baidu/webos/service/app/AppService.java" bugCount="0" size="2"/>
+    <FileStats path="com/baidu/webos/service/appStore/AppStoreService.java" bugCount="0" size="1"/>
+    <FileStats path="com/baidu/webos/service/baseApp/BaseAppService.java" bugCount="0" size="6"/>
+    <FileStats path="com/baidu/webos/service/desktop/DesktopService.java" bugCount="0" size="1"/>
+    <FileStats path="com/baidu/webos/service/impl/app/AppSearchServiceImpl.java" bugCount="0" size="5"/>
+    <FileStats path="com/baidu/webos/service/impl/app/AppServiceImpl.java" bugCount="0" size="7"/>
+    <FileStats path="com/baidu/webos/service/impl/appStore/AppStoreServiceImpl.java" bugCount="0" size="5"/>
+    <FileStats path="com/baidu/webos/service/impl/appStore/AppStoreServiceImplTest.java" bugCount="0" size="10"/>
+    <FileStats path="com/baidu/webos/service/impl/baseApp/BaseAppServiceImpl.java" bugCount="0" size="54"/>
+    <FileStats path="com/baidu/webos/service/impl/desktop/DesktopServiceImpl.java" bugCount="0" size="5"/>
+    <FileStats path="com/baidu/webos/service/impl/widget/WidgetServiceImpl.java" bugCount="1" size="21" bugHash="80d1b534386a84b007ba334974d7765c"/>
+    <FileStats path="com/baidu/webos/service/widget/WidgetService.java" bugCount="0" size="4"/>
+    <PackageStats package="com.baidu.webos.action.app" total_bugs="3" total_types="2" total_size="53" priority_2="2" priority_1="1">
+      <ClassStats class="com.baidu.webos.action.app.AppAction" sourceFile="AppAction.java" interface="false" size="37" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="com.baidu.webos.action.app.AppSearchAction" sourceFile="AppSearchAction.java" interface="false" size="16" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.action.appStore" total_bugs="1" total_types="1" total_size="8" priority_2="1">
+      <ClassStats class="com.baidu.webos.action.appStore.AppStoreAction" sourceFile="AppStoreAction.java" interface="false" size="8" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.action.baseApp" total_bugs="1" total_types="1" total_size="48" priority_2="1">
+      <ClassStats class="com.baidu.webos.action.baseApp.BaseAppAction" sourceFile="BaseAppAction.java" interface="false" size="48" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.action.desktop" total_bugs="1" total_types="1" total_size="16" priority_2="1">
+      <ClassStats class="com.baidu.webos.action.desktop.DesktopAction" sourceFile="DesktopAction.java" interface="false" size="16" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.action.index" total_bugs="0" total_types="2" total_size="27">
+      <ClassStats class="com.baidu.webos.action.index.HelloWorldAction" sourceFile="HelloWorldAction.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.baidu.webos.action.index.IndexAction" sourceFile="IndexAction.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.action.widget" total_bugs="1" total_types="1" total_size="46" priority_2="1">
+      <ClassStats class="com.baidu.webos.action.widget.WidgetAction" sourceFile="WidgetAction.java" interface="false" size="46" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.basic.test" total_bugs="0" total_types="2" total_size="26">
+      <ClassStats class="com.baidu.webos.basic.test.SpringContextTestCase" sourceFile="SpringContextTestCase.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="com.baidu.webos.basic.test.SpringTransactionalTestCase" sourceFile="SpringTransactionalTestCase.java" interface="false" size="17" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.basic.utils" total_bugs="3" total_types="3" total_size="418" priority_1="3">
+      <ClassStats class="com.baidu.webos.basic.utils.CharacterCodeUtils" sourceFile="CharacterCodeUtils.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="com.baidu.webos.basic.utils.LoggerUtils" sourceFile="LoggerUtils.java" interface="false" size="84" bugs="0"/>
+      <ClassStats class="com.baidu.webos.basic.utils.StringUtils" sourceFile="StringUtils.java" interface="false" size="303" bugs="3" priority_1="3"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.basic.velocity" total_bugs="0" total_types="1" total_size="11">
+      <ClassStats class="com.baidu.webos.basic.velocity.FlexibleVelocityResult" sourceFile="FlexibleVelocityResult.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.app" total_bugs="0" total_types="2" total_size="3">
+      <ClassStats class="com.baidu.webos.dao.app.AppDao" sourceFile="AppDao.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.baidu.webos.dao.app.AppSearchDao" sourceFile="AppSearchDao.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.appStore" total_bugs="0" total_types="1" total_size="1">
+      <ClassStats class="com.baidu.webos.dao.appStore.AppStoreDao" sourceFile="AppStoreDao.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.baseApp" total_bugs="0" total_types="1" total_size="3">
+      <ClassStats class="com.baidu.webos.dao.baseApp.BaseAppDao" sourceFile="BaseAppDao.java" interface="true" size="3" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.desktop" total_bugs="0" total_types="1" total_size="1">
+      <ClassStats class="com.baidu.webos.dao.desktop.DesktopDao" sourceFile="DesktopDao.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.impl.app" total_bugs="0" total_types="2" total_size="12">
+      <ClassStats class="com.baidu.webos.dao.impl.app.AppDaoImpl" sourceFile="AppDaoImpl.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.baidu.webos.dao.impl.app.AppSearchDaoImpl" sourceFile="AppSearchDaoImpl.java" interface="false" size="4" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.impl.appStore" total_bugs="0" total_types="1" total_size="4">
+      <ClassStats class="com.baidu.webos.dao.impl.appStore.AppStoreDaoImpl" sourceFile="AppStoreDaoImpl.java" interface="false" size="4" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.impl.baseApp" total_bugs="1" total_types="1" total_size="48" priority_2="1">
+      <ClassStats class="com.baidu.webos.dao.impl.baseApp.BaseAppDaoImpl" sourceFile="BaseAppDaoImpl.java" interface="false" size="48" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.impl.desktop" total_bugs="0" total_types="1" total_size="4">
+      <ClassStats class="com.baidu.webos.dao.impl.desktop.DesktopDaoImpl" sourceFile="DesktopDaoImpl.java" interface="false" size="4" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.impl.widget" total_bugs="0" total_types="1" total_size="42">
+      <ClassStats class="com.baidu.webos.dao.impl.widget.WidgetDaoImpl" sourceFile="WidgetDaoImpl.java" interface="false" size="42" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.dao.widget" total_bugs="0" total_types="1" total_size="3">
+      <ClassStats class="com.baidu.webos.dao.widget.WidgetDao" sourceFile="WidgetDao.java" interface="true" size="3" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.junit.webservice" total_bugs="3" total_types="2" total_size="68" priority_1="3">
+      <ClassStats class="com.baidu.webos.junit.webservice.LogTest" sourceFile="LogTest.java" interface="false" size="37" bugs="3" priority_1="3"/>
+      <ClassStats class="com.baidu.webos.junit.webservice.SpringTest" sourceFile="SpringTest.java" interface="false" size="31" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.app" total_bugs="0" total_types="2" total_size="3">
+      <ClassStats class="com.baidu.webos.service.app.AppSearchService" sourceFile="AppSearchService.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.baidu.webos.service.app.AppService" sourceFile="AppService.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.appStore" total_bugs="0" total_types="1" total_size="1">
+      <ClassStats class="com.baidu.webos.service.appStore.AppStoreService" sourceFile="AppStoreService.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.baseApp" total_bugs="0" total_types="1" total_size="6">
+      <ClassStats class="com.baidu.webos.service.baseApp.BaseAppService" sourceFile="BaseAppService.java" interface="true" size="6" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.desktop" total_bugs="0" total_types="1" total_size="1">
+      <ClassStats class="com.baidu.webos.service.desktop.DesktopService" sourceFile="DesktopService.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.impl.app" total_bugs="0" total_types="2" total_size="12">
+      <ClassStats class="com.baidu.webos.service.impl.app.AppSearchServiceImpl" sourceFile="AppSearchServiceImpl.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.baidu.webos.service.impl.app.AppServiceImpl" sourceFile="AppServiceImpl.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.impl.appStore" total_bugs="0" total_types="2" total_size="15">
+      <ClassStats class="com.baidu.webos.service.impl.appStore.AppStoreServiceImpl" sourceFile="AppStoreServiceImpl.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.baidu.webos.service.impl.appStore.AppStoreServiceImplTest" sourceFile="AppStoreServiceImplTest.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.impl.baseApp" total_bugs="0" total_types="1" total_size="54">
+      <ClassStats class="com.baidu.webos.service.impl.baseApp.BaseAppServiceImpl" sourceFile="BaseAppServiceImpl.java" interface="false" size="54" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.impl.desktop" total_bugs="0" total_types="1" total_size="5">
+      <ClassStats class="com.baidu.webos.service.impl.desktop.DesktopServiceImpl" sourceFile="DesktopServiceImpl.java" interface="false" size="5" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.impl.widget" total_bugs="1" total_types="1" total_size="21" priority_1="1">
+      <ClassStats class="com.baidu.webos.service.impl.widget.WidgetServiceImpl" sourceFile="WidgetServiceImpl.java" interface="false" size="21" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="com.baidu.webos.service.widget" total_bugs="0" total_types="1" total_size="4">
+      <ClassStats class="com.baidu.webos.service.widget.WidgetService" sourceFile="WidgetService.java" interface="true" size="4" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.asm.ClassReaderAnalysisEngine" totalMilliseconds="11" invocations="757" avgMicrosecondsPerInvocation="14" maxMicrosecondsPerInvocation="6495" standardDeviationMircosecondsPerInvocation="235"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SerializableIdiom" totalMilliseconds="11" invocations="41" avgMicrosecondsPerInvocation="270" maxMicrosecondsPerInvocation="3675" standardDeviationMircosecondsPerInvocation="577"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="11" invocations="41" avgMicrosecondsPerInvocation="271" maxMicrosecondsPerInvocation="3151" standardDeviationMircosecondsPerInvocation="599"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.URLProblems" totalMilliseconds="12" invocations="41" avgMicrosecondsPerInvocation="301" maxMicrosecondsPerInvocation="5187" standardDeviationMircosecondsPerInvocation="831"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CrossSiteScripting" totalMilliseconds="12" invocations="41" avgMicrosecondsPerInvocation="304" maxMicrosecondsPerInvocation="8756" standardDeviationMircosecondsPerInvocation="1342"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.DepthFirstSearchFactory" totalMilliseconds="13" invocations="195" avgMicrosecondsPerInvocation="66" maxMicrosecondsPerInvocation="7780" standardDeviationMircosecondsPerInvocation="555"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="13" invocations="41" avgMicrosecondsPerInvocation="337" maxMicrosecondsPerInvocation="4804" standardDeviationMircosecondsPerInvocation="834"/>
+      <ClassProfile name="edu.umd.cs.findbugs.NonReportingDetectorToDetector2Adapter" totalMilliseconds="13" invocations="2227" avgMicrosecondsPerInvocation="6" maxMicrosecondsPerInvocation="807" standardDeviationMircosecondsPerInvocation="22"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SwitchFallthrough" totalMilliseconds="14" invocations="41" avgMicrosecondsPerInvocation="351" maxMicrosecondsPerInvocation="6166" standardDeviationMircosecondsPerInvocation="1050"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="14" invocations="41" avgMicrosecondsPerInvocation="354" maxMicrosecondsPerInvocation="7285" standardDeviationMircosecondsPerInvocation="1126"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteNonnullReturnValues" totalMilliseconds="14" invocations="41" avgMicrosecondsPerInvocation="359" maxMicrosecondsPerInvocation="4882" standardDeviationMircosecondsPerInvocation="840"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="15" invocations="41" avgMicrosecondsPerInvocation="385" maxMicrosecondsPerInvocation="4323" standardDeviationMircosecondsPerInvocation="735"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="17" invocations="148" avgMicrosecondsPerInvocation="117" maxMicrosecondsPerInvocation="2748" standardDeviationMircosecondsPerInvocation="269"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.RuntimeExceptionCapture" totalMilliseconds="18" invocations="41" avgMicrosecondsPerInvocation="442" maxMicrosecondsPerInvocation="5849" standardDeviationMircosecondsPerInvocation="1086"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="18" invocations="41" avgMicrosecondsPerInvocation="462" maxMicrosecondsPerInvocation="4783" standardDeviationMircosecondsPerInvocation="1024"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="20" invocations="41" avgMicrosecondsPerInvocation="487" maxMicrosecondsPerInvocation="8399" standardDeviationMircosecondsPerInvocation="1651"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SynchronizationOnSharedBuiltinConstant" totalMilliseconds="20" invocations="41" avgMicrosecondsPerInvocation="489" maxMicrosecondsPerInvocation="14190" standardDeviationMircosecondsPerInvocation="2196"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="20" invocations="18" avgMicrosecondsPerInvocation="1127" maxMicrosecondsPerInvocation="2656" standardDeviationMircosecondsPerInvocation="745"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="20" invocations="1749" avgMicrosecondsPerInvocation="11" maxMicrosecondsPerInvocation="2343" standardDeviationMircosecondsPerInvocation="62"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="21" invocations="41" avgMicrosecondsPerInvocation="515" maxMicrosecondsPerInvocation="8153" standardDeviationMircosecondsPerInvocation="1611"/>
+      <ClassProfile name="edu.umd.cs.findbugs.DetectorToDetector2Adapter" totalMilliseconds="23" invocations="4634" avgMicrosecondsPerInvocation="5" maxMicrosecondsPerInvocation="133" standardDeviationMircosecondsPerInvocation="2"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="26" invocations="148" avgMicrosecondsPerInvocation="180" maxMicrosecondsPerInvocation="5396" standardDeviationMircosecondsPerInvocation="496"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="28" invocations="165" avgMicrosecondsPerInvocation="171" maxMicrosecondsPerInvocation="3101" standardDeviationMircosecondsPerInvocation="397"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="31" invocations="148" avgMicrosecondsPerInvocation="212" maxMicrosecondsPerInvocation="2484" standardDeviationMircosecondsPerInvocation="347"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="40" invocations="165" avgMicrosecondsPerInvocation="244" maxMicrosecondsPerInvocation="2192" standardDeviationMircosecondsPerInvocation="453"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="42" invocations="165" avgMicrosecondsPerInvocation="255" maxMicrosecondsPerInvocation="3560" standardDeviationMircosecondsPerInvocation="533"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="52" invocations="93" avgMicrosecondsPerInvocation="568" maxMicrosecondsPerInvocation="3120" standardDeviationMircosecondsPerInvocation="659"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="59" invocations="25" avgMicrosecondsPerInvocation="2379" maxMicrosecondsPerInvocation="8847" standardDeviationMircosecondsPerInvocation="2073"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="60" invocations="80" avgMicrosecondsPerInvocation="754" maxMicrosecondsPerInvocation="35353" standardDeviationMircosecondsPerInvocation="3895"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="62" invocations="165" avgMicrosecondsPerInvocation="377" maxMicrosecondsPerInvocation="13746" standardDeviationMircosecondsPerInvocation="1203"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="63" invocations="149" avgMicrosecondsPerInvocation="426" maxMicrosecondsPerInvocation="16732" standardDeviationMircosecondsPerInvocation="1406"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="73" invocations="263" avgMicrosecondsPerInvocation="278" maxMicrosecondsPerInvocation="12665" standardDeviationMircosecondsPerInvocation="911"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="90" invocations="163" avgMicrosecondsPerInvocation="556" maxMicrosecondsPerInvocation="44712" standardDeviationMircosecondsPerInvocation="3543"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="90" invocations="165" avgMicrosecondsPerInvocation="551" maxMicrosecondsPerInvocation="8862" standardDeviationMircosecondsPerInvocation="1271"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="101" invocations="148" avgMicrosecondsPerInvocation="684" maxMicrosecondsPerInvocation="8183" standardDeviationMircosecondsPerInvocation="1138"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="102" invocations="165" avgMicrosecondsPerInvocation="621" maxMicrosecondsPerInvocation="70729" standardDeviationMircosecondsPerInvocation="5492"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="137" invocations="148" avgMicrosecondsPerInvocation="927" maxMicrosecondsPerInvocation="10120" standardDeviationMircosecondsPerInvocation="1466"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="138" invocations="162" avgMicrosecondsPerInvocation="853" maxMicrosecondsPerInvocation="24961" standardDeviationMircosecondsPerInvocation="2185"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="147" invocations="165" avgMicrosecondsPerInvocation="896" maxMicrosecondsPerInvocation="13316" standardDeviationMircosecondsPerInvocation="1947"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="159" invocations="148" avgMicrosecondsPerInvocation="1080" maxMicrosecondsPerInvocation="18392" standardDeviationMircosecondsPerInvocation="2233"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="177" invocations="2554" avgMicrosecondsPerInvocation="69" maxMicrosecondsPerInvocation="5684" standardDeviationMircosecondsPerInvocation="194"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="183" invocations="887" avgMicrosecondsPerInvocation="207" maxMicrosecondsPerInvocation="10416" standardDeviationMircosecondsPerInvocation="377"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="210" invocations="208" avgMicrosecondsPerInvocation="1011" maxMicrosecondsPerInvocation="89007" standardDeviationMircosecondsPerInvocation="6272"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="244" invocations="879" avgMicrosecondsPerInvocation="278" maxMicrosecondsPerInvocation="41888" standardDeviationMircosecondsPerInvocation="1618"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

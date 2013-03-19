@@ -1,0 +1,49 @@
+#parse("/com/jiae/iseer/template/vm/header.vm")
+<div class="wrapper">
+    <h1>Welcome to Iseer similar images retrieval system</h1>
+    
+    <div class="search-container">
+    <form method="post" action="s" class="search-form">
+        <div class="upload-file">
+            <img src="$G.IMG_URL/loading2.gif" class="loading">
+            <span class="error"></span>
+            <a href="javascript:;" class="button button14 upload-button red-button"><strong>选择图片</strong><span></span>
+                <input type="file" class="input-file" id="UploadFileInput" value="" alt="选择图片" title="选择图片" name="uploadFile">
+            </a>
+        </div>
+        <div class="input-url">
+            <input type="text" placeholder="http://" value="#if($url)$url#end" name="url">
+            <a href="javascript:;" class="button button14 search-button red-button"><strong>搜索一下</strong><span></span>
+            </a>
+        </div>
+        <span class="tab-link">
+        <a href="javascript:;" class="url-link">输入图片网址</a>
+        <a href="javascript:;" class="upload-link">选择本地图片</a>
+        </span>
+        <input type="hidden" name="name" value="">
+        <input type="hidden" name="upload" value="uploadLocal">
+    </form>
+    </div>
+    
+    <ul class="tab">
+        <span class="note">提供:</span>
+        <li>按颜色找图</li>
+        <li>查找相同图像</li>
+        <li>查找近似图像</li>
+        <li><a href="index">添加图像到索引库中</a></li>
+    </ul>
+    
+    <ol class="image-list">
+        #foreach($image in ${randomImageList})
+            #set($size = $vu.resizeImageSize($image.width, $image.height)) 
+            <li>
+            <a href="s?id=$image.id"><img src="$G.IMAGES_URL/$image.name" width="$size.width"  height="$size.height"></a>
+            </li>
+        #end
+    </ol>
+    
+</div>
+<script charset="utf-8" type="text/javascript">
+Search.Action.run();
+</script>
+#parse("/com/jiae/iseer/template/vm/footer.vm")

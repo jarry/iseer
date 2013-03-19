@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+#parse("/com/jiae/iseer/template/vm/global.vm")
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Iseer_相似图像检索系统</title>
+<meta charset="utf-8">
+<meta content="加意网,创意生活,慢生活,都市生活,美容时尚,服饰服装,行走天下,创意设计,家居设计,艺术设计,美食图片,手工DIY,趣味记忆,都市情感,生活窍门,精美图片,图片收藏,图谱,图册,图片分享,+创意工具,jiae.com" name="keywords">
+<meta content="加意网,全球最大创意生活社区。每天都有最新创意出现,囊括国内外最新家居、美食、旅行、手工DIY、时尚、生活等各种精美图片与创意。集聚国内顶尖时尚、家居、DIY创意大师与各类生活爱好者,点燃你的生活激情,激发你的灵感与想象力。创意慢生活,从加意开始!" name="description">
+<link type="image/x-icon" href="http://static.jiae.com/favicon.ico" rel="icon">
+<link href="http://static.jiae.com/favicon.ico" rel="apple-touch-icon-precomposed">
+<link media="all" type="text/css" href="$G.CSS_URL/iseer.css" rel="stylesheet">
+<script charset="utf-8" type="text/javascript" src="$G.JS_URL/core.js?$G.JS_VERSION"></script>
+<script charset="utf-8" type="text/javascript" src="$G.JS_URL/iseer.js?$G.JS_VERSION"></script>
+</head>
+<body>
+#parse("/com/jiae/iseer/template/vm/nav.vm")

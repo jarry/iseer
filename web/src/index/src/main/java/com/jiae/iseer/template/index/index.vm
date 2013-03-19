@@ -1,0 +1,70 @@
+#parse("/com/jiae/iseer/template/vm/header.vm")
+<div class="wrapper">
+    <h1>索引图像，提供单个文件索引以及针对文件夹批量索引。</h1>
+        <ul>
+            <li>索引目录：$indexRealPath</li>
+            <li>图片存放目录：$imagesRealPath</li>
+            <li>临时文件目录$tempRealPath</li>
+        </ul>
+    <br>
+    <p>
+    </p>
+    <fieldset>
+        <legend>索引图像文件(jpg|jpeg|gif|bmp)：</legend>
+        <div class="index-container">
+            <form action="" class="index-form" method="post">
+                <label for="SingleFile">
+                     <input type="radio" checked id="SingleFile" name="action" value="single">单一文件:选择上传或URL抓取
+                </label>
+                <div class="upload-file">
+                    <img src="$G.IMG_URL/loading2.gif" class="loading">
+                    <span class="error"></span>
+                    <a href="javascript:;" class="button button14 upload-button red-button"><strong>选择图片</strong><span></span>
+                        <input type="file" class="input-file" id="UploadFileInput" value="" alt="选择图片" title="选择图片" name="uploadFile">
+                    </a>
+                </div>
+                <div class="input-url">
+                    <img src="$G.IMG_URL/loading2.gif" class="loading">
+                    <input type="text" placeholder="http://" value="#if($url)$url#end" name="url">
+                    <span class="error"></span>
+                    <a href="javascript:;" class="button button14 search-button red-button"><strong>查找图像</strong><span></span>
+                    </a>
+                </div>
+                <span class="tab-link">
+                <a href="javascript:;" class="url-link">输入图片网址</a>
+                <a href="javascript:;" class="upload-link">选择本地图片</a>
+                </span>
+                <div class="preview">
+                    <p><img src="$G.IMG_URL/loading.gif" ></p>
+                </div>
+                <br>
+                <input type="hidden" name="name" value="">
+                <input type="hidden" name="type" value="">
+                <input type="hidden" name="width" value="">
+                <input type="hidden" name="height" value="">
+                
+                <br><br>
+                <label for="MultiFile" class="multi-file">
+                    <input type="radio" id="MultiFile" name="action" value="all">全部文件:针对图片目录全部索引
+                </label>
+                <br><br>
+                    <input type="submit" value="提交索引" class="button button14"> &nbsp; 
+                    #if ($action == 'all' || $action == 'single')
+                    <strong class="error">
+                        #if ($imageInfo && !$imageInfo['name'])
+                                            没有选择图片。
+                        #else
+                                            图片索引完成。
+                        #end
+                    </strong> 
+                    #end
+                    <br>
+            </form>
+        </div>
+    </fieldset>
+    <br>
+</div>
+<script charset="utf-8" type="text/javascript">
+Index.Action.run();
+</script>
+#parse("/com/jiae/iseer/template/vm/footer.vm")

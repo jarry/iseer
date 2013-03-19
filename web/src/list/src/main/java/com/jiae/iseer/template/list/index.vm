@@ -1,0 +1,6 @@
+#parse("/com/jiae/iseer/template/vm/header.vm")
+<div class="wrapper wrapper-list">
+
+<h1>this is list page</h1>
+
+#parse("/com/jiae/iseer/template/vm/footer.vm")

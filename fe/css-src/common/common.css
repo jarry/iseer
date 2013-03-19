@@ -1,0 +1,197 @@
+/*
+ * Copyright 2012 Jiae.com All rights reserved.
+ * 
+ * file: common.css
+ * path: css-src/
+ * description: 基础css
+ *              基本规则：
+ *              - 所有class都使用classname，而不采用id。没有#Header样式
+ *              - 全局性的唯一的大的布局块采用首字母大写，如:.Header .PinWrapper, 其他classname均为小写，以下划线连接，如.pin 
+ *              - 通过全局性唯一的块样式+标签来定义多级样式，减少子节点的classname
+ *              - 基础字体字号单独指定，对通用的html标签重定义样式，同时一个标签尽量控制在4个样式名称内
+ *              - 语义化以及具体命名、格式规范、注意事项等详细内容参见《CSS编码规范》
+ * author: jarryli@gmail.com
+ * date: 2012-4-5
+ */
+@charset 'utf-8';
+
+/* Common STYLE
+--------------------------------------------------------------------------------------- */
+.wrapper {
+    margin: 0 auto;
+    width: 1050px;
+}
+.wrapper .image-list {
+    width:1050px;
+    clear: both;
+}
+.wrapper .image-list li {
+    overflow:hidden;
+    width:200px;
+    height:200px;
+    float:left;
+    margin:0 0 10px 10px;
+}
+.wrapper .image-list img {
+    /* width:200px; */
+    float:left;
+}
+.wrapper .source-img {
+    overflow:hidden;
+    height:100px;
+    width:100px;
+    margin: 10px;
+}
+.wrapper .source-img img {
+
+}
+.wrapper h1 {
+    text-align: center;
+    font-size: 20px;
+    padding:0px;
+}
+header,nav,footer {
+    clear: both;
+    margin: 10px auto auto auto;
+    width: 1020px;
+    text-align: center;
+}
+footer {
+    margin-top:10px;
+}
+.wrapper .tab {
+    margin: 0 0 0 10px;
+    height: 30px;
+}
+.wrapper .tab .note {
+    float:left;
+}
+.wrapper .tab li {
+    float:left;
+    margin-left:20px;
+}
+.wrapper .search-container {
+    text-align:center;
+}
+.wrapper .search-container form {
+    width: 400px;
+    height: 60px;
+    margin: auto;
+    margin-top: 20px;
+    zoom: 0;
+}
+.wrapper .search-container form .input-url {
+    display: none;
+}
+.wrapper .search-container form .input-url input[name="url"] {
+    width: 300px;
+    font-size: 14px;
+    line-height: 25px;
+    height: 25px;
+}
+.wrapper .search-container form .input-url .button {
+    height: 20px;
+}
+.wrapper .search-container form .button strong{
+    line-height: 20px;
+}
+.wrapper .search-container form .tab-link {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 210px;
+}
+.wrapper .search-container form .tab-link .upload-link {
+    display:none;
+}
+.wrapper .upload-file {
+    width: 400px;
+    border: 1px inset #f1f1f1;
+    border-right: 0px;
+    background: #fff;
+    text-align: right;
+    overflow:hidden;
+}
+.wrapper .index-form .preview p {
+    background: rgb(243, 242, 242);
+    box-shadow: 0 0 1px rgba(255,255,255,.15);
+    position: absolute;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    margin-top:5px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+    display: none;
+}
+.wrapper .index-form .preview p .error {
+    color:red;
+    display:none;
+}
+.wrapper .index-form .preview p img {
+}
+.wrapper .index-form .upload-button {
+    margin-left:150px;
+    line-height: 20px;
+    height: 20px;
+}
+.wrapper .index-form .upload-file .loading, .wrapper .search-container .upload-file .loading {
+    display:none;
+}
+.wrapper .index-form .multi-file {
+    display:block;
+    clear:both;
+    margin-top:80px;
+}
+.wrapper .index-form .input-url {
+    display: none;
+}
+.wrapper .index-form .input-url input[name="url"] {
+    width: 300px;
+    font-size: 14px;
+    line-height: 25px;
+    height: 25px;
+}
+.wrapper .index-form .input-url .loading {
+    position: absolute;
+    margin: 10px;
+    margin-left: 130px;
+    display:none;
+}
+.wrapper .index-form .input-url .button {
+    height: 20px;
+}
+.wrapper .index-form .input-url .button strong{
+    line-height: 20px;
+}
+.wrapper .index-form .tab-link {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 210px;
+}
+.wrapper .index-form .tab-link .upload-link {
+    display:none;
+}
+.wrapper .index-form .input-url .button {
+    height: 20px;
+}
+.wrapper .index-form .input-url .button strong {
+    line-height: 20px;
+}
+.wrapper .index-form .tab-link {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 410px;
+}
+.wrapper .upload-file .button input[type="file"] {
+    position: absolute;
+    left: -320px;
+    top: -2px;
+    font-size: 30px;
+    cursor: pointer;
+    color: transparent;
+    z-index: 10;
+    width: 400px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}

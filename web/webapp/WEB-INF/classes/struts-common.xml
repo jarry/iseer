@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="homeRoot" namespace="" extends="default">
+        <action name="" class="com.jiae.iseer.action.home.HomeAction">          
+            <result type="velocity">
+                <param name="contentType">text/html</param>
+                <param name="location">/com/jiae/iseer/template/home/home.vm</param>
+            </result>
+        </action>
+    </package>
+    
+    <package name="userPath" namespace="/user" extends="default">
+        <action name="list" class="com.jiae.iseer.action.user.UserAction">          
+            <result type="velocity">
+                <param name="contentType">text/html</param>
+                <param name="location">/com/jiae/iseer/template/user/list.vm</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="uploadRoot" namespace="/" extends="default">
+        <action name="upload" class="com.jiae.iseer.action.upload.UploadAction">
+            <interceptor-ref name ="fileUpload" /> 
+            <interceptor-ref name="springSideStack"/>
+            <result type="velocity">
+                <param name="contentType">application/json</param>
+                <param name="location">/com/jiae/iseer/template/upload/result.vm</param>
+            </result>
+            <result name="error" type="velocity">
+                <param name="contentType">application/json</param>
+                <param name="location">/com/jiae/iseer/template/upload/result.vm</param>
+            </result>
+        </action>
+    </package>
+    
+    <package name="downloadRoot" namespace="/" extends="default">
+        <action name="download" class="com.jiae.iseer.action.download.DownloadAction">
+            <result type="velocity">
+                <param name="contentType">application/json</param>
+                <param name="location">/com/jiae/iseer/template/download/result.vm</param>
+            </result>
+            <result name="error" type="velocity">
+                <param name="contentType">application/json</param>
+                <param name="location">/com/jiae/iseer/template/download/result.vm</param>
+            </result>
+        </action>
+    </package>
+    
+    <package name="imagePath" namespace="/image" extends="default">
+        <action name="list" class="com.jiae.iseer.action.image.ImageAction">          
+            <result type="velocity">
+                <param name="contentType">text/html</param>
+                <param name="location">/com/jiae/iseer/template/image/list.vm</param>
+            </result>
+            <result name="list">
+                <param name="contentType">text/html</param>
+                <param name="location">/com/jiae/iseer/template/image/list.vm</param>
+            </result>
+        </action>
+    </package>
+
+</struts>

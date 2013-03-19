@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:cache="http://www.springframework.org/schema/cache"
+    xmlns:ehcache="http://www.springmodules.org/schema/ehcache"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop"    
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+    http://www.springframework.org/schema/jee 
+    http://www.springframework.org/schema/jee/spring-jee-3.0.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+    http://www.springframework.org/schema/cache
+    http://www.springframework.org/schema/cache/spring-cache.xsd 
+    http://www.springmodules.org/schema/ehcache
+    http://www.springmodules.org/schema/cache/springmodules-ehcache.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util-3.0.xsd 
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+    default-lazy-init="true" >
+
+    <!--
+    // path: WEB-INF/classes/applicationContext.xml
+    // description:
+    // spring配置文件
+    // 1) 配置spring注解注入，自动扫描项目包
+    // 2） 引入hibernate持久化，配置注解方式，配置c3p0数据池连接
+    // 3) 开启事物支持，指向hibernate seesionFactory
+    // 4) 引入ehcache或自带cache等
+    // 5) 配置aop
+    // @author jarryli@gmail.com
+    // @date 2011-9-15
+    -->
+	<description>Spring Common Config</description>
+	
+	<!-- 
+	// scan all files for IoC
+	// 自动扫描指定包下面所有的文件
+	// 可以配置文件后缀和排除目录 
+	-->
+    <context:component-scan base-package="com.jiae.iseer"> 
+    </context:component-scan>
+     <!-- initialation @Controller,@Service,@repository,@Component annotate to Spring bean -->
+    <!-- // 配置指定扫描
+    <context:component-scan base-package="com.jiae.iseer" use-default-filters="false">
+        <context:include-filter type="regex" expression=".service.*"/>
+        <context:include-filter type="regex" expression=".dao.*"/>
+        <context:exclude-filter type="regex" expression=".template.*"/>        
+    </context:component-scan>
+      -->     
+
+    <!-- 
+    // load default annotation
+    // 配置注解支持、包含全部
+    // 
+    -->
+    <context:annotation-config />
+<!--
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />  
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />  
+    <bean class="org.springframework.context.annotation.RequiredAnnotationBeanPostProcessor" />  
+    <bean class="org.springframework.context.annotation.PersistenceAnnotationBeanPostProcessor" />
+-->   
+
+    <!-- 
+     // hibernate configure  for xml mapping
+     // 引入hibernate映射文件，与注解映射选一个即可，本项目采用注解方式
+     -->
+    <!--
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">   
+        <property name="configLocation" value="classpath:hibernate.cfg.xml" />
+        <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration" />     
+    </bean>
+    -->
+    <!-- 
+    // 采用配置文件注解方式注入，一般采用xml配置映射或者采用注解配置映射
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" >
+        <property name="configLocation" value="classpath:hibernate.cfg.xml" />
+        <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration" />  
+    </bean>
+    -->
+    
+    <!-- 
+    // database config settting 
+    // 数据库配置常量
+    -->
+    <bean
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="ignoreResourceNotFound" value="true" />
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+     </bean> 
+
+    <!--
+    // 使用apache DBCP的dataSource需要commons-pool*.jar、commons-dbcp-*.jar支持
+    // apache dbcp 与 c3p0 任选一个即可
+     -->
+     <!--
+    <bean id="DBCPDataSource"
+    class="org.apache.commons.dbcp.BasicDataSource" 
+    destroy-method="close"> 
+    <property name="driverClassName" value="${jdbc.driverClassName}" /> 
+    <property name="url" value="${jdbc.url}" /> 
+    <property name="username" value="${jdbc.username}" /> 
+    <property name="password" value="${jdbc.password}" /> 
+    </bean>
+    -->
+    <!-- 
+    // setting database pool，需要c3p0-*.jar支持
+    // 配置c3p0数据库连接池，加载数据库配置常量
+    // 本项目采用c3p0方式
+    -->   
+    <bean id="C3P0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" >  
+    <property name="driverClass" value="${jdbc.driverClassName}" />
+    <property name="jdbcUrl" value="${jdbc.url}" />   
+    <property name="user" value="${jdbc.username}" />  
+    <property name="password" value="${jdbc.password}" />  
+    <property name="minPoolSize" value="${jdbc.minPoolSize}" />   
+    <property name="maxPoolSize" value="${jdbc.maxPoolSize}" />  
+    <property name="maxIdleTime" value="${jdbc.maxIdleTime}" />  
+    <property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}" />   
+    <property name="maxStatements" value="${jdbc.maxStatements}" />  
+    <property name="acquireIncrement" value="${jdbc.acquireIncrement}" /> 
+    <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}" />    
+    <property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}" />    
+
+    </bean>
+    <!--
+    // hibernate Session配置,注解、开启事务,使用拦截器
+    // hibernate configure  for annotation mapping
+    --> 
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="C3P0DataSource" />
+        <property name="namingStrategy">
+            <bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.hibernate.use_outer_join">${hibernate.hibernate.use_outer_join}</prop>
+
+                <prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+                <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop> 
+                <prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+  
+                <prop key="hibernate.connection.charSet">${hibernate.connection.charSet}</prop>
+                <prop key="hibernate.connection.release_mode">${hibernate.connection.release_mode}</prop>
+            </props>
+        </property>
+         
+        <property name="packagesToScan" value="com.jiae.iseer.entity.*" />
+        
+        <property name="entityInterceptor" ref="hibernateInterceptor" />
+    </bean>
+    <bean id="hibernateInterceptor" class="com.jiae.iseer.basic.interceptor.HibernateInterceptor" />     
+    <!--// Inject hibernateTemplate to sessionFactory, is not required  -->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate" >  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>
+    
+     <!-- 
+    // set transactionManager 
+    // 配置事务并指向hibernate事务,单数据源
+    -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    
+    <!-- // 使用事物标签配置事物，与tx:annotation-driven类似  -->    
+    <!--
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+         <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED"/>
+         </tx:attributes>
+    </tx:advice> 
+     <bean id="transactionBase"
+      class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+      lazy-init="true" abstract="true">
+      <property name="transactionManager">
+       <ref bean="transactionManager" />
+      </property>
+      <property name="transactionAttributes">
+       <props>
+        <prop key="delete*">PROPAGATION_REQUIRED</prop>
+        <prop key="add*">PROPAGATION_REQUIRED</prop>
+        <prop key="update*">PROPAGATION_REQUIRED</prop>
+        <prop key="save*">PROPAGATION_REQUIRED</prop>
+        <prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+       </props>
+      </property>
+     </bean>
+    <aop:config>
+    <aop:pointcut id="interceptorPointCuts" expression="execution(* com.jiae.iseer.dao.impl.*.*(..))"/>    
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />
+    </aop:config>
+     -->
+     <!-- 
+     // aop setting
+     -->
+     <aop:aspectj-autoproxy />
+    <bean id="exceptionAspect" class="com.jiae.iseer.basic.utils.ExceptionAspect" />
+
+    <!-- 
+    // default cache setting since spring3.x 
+    // spring 3.1 开始有自带的缓存配置，未使用
+    -->
+    <!--
+    <cache:annotation-driven cache-manager="cacheManager"/>  
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+      <property name="caches">
+        <set>
+          <bean class="org.springframework.cache.concurrent.ConcurrentCacheFactoryBean" p:name="default"/>
+          <bean class="org.springframework.cache.concurrent.ConcurrentCacheFactoryBean" p:name="books"/>
+        </set>
+      </property>
+    </bean>      
+     -->
+  
+  <!--
+   // set ehcache for spring3.x 
+   // 本项目使用ehcache，后续再换为memcache
+   // 测试为服务器内存不够，为防止内存溢出，暂时关闭二级缓存
+  -->
+  <!--
+    <cache:annotation-driven cache-manager="cacheManager" proxy-target-class="false" mode="proxy"/>
+    <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+         p:configLocation="classpath:ehcache.xml"
+         p:shared="false" />
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
+       p:cacheManager-ref="cacheManagerFactory"/> 
+    -->   
+     
+<!-- 
+// set ehcache for spring2.5 
+// spring2.5 配置cache 不使用
+    <ehcache:config configLocation="classpath:ehcache.xml" />
+    <ehcache:annotations>
+        <ehcache:caching id="ConstantBufCacheModel" cacheName="ConstantBufCache" />
+        <ehcache:caching id="nameMapCacheModel" cacheName="nameMapCache" />
+        <ehcache:flushing id="ConstantBufFlushModel" cacheNames="ConstantBufCache" />
+        <ehcache:flushing id="nameMapFlushModel" cacheNames="nameMapCache" />
+    </ehcache:annotations>
+-->
+
+</beans>

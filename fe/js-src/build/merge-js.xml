@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+function:
+    1. merge JS files accrodding the include setting,
+       mind JS files loading order 
+
+author: lichunping
+mail: JarryLi@gmail.com 
+-->
+<project name="iseer JS Files Merge" default="Merge iseer.js" basedir=".">
+    <property name="root-path" value="../../.." />
+    <property name="fe-path" value="../.." />
+        <property name="js-src-path" value="${fe-path}/js-src"/>
+        <property name="js-run-path" value="${root-path}/static/js" />
+        <!--Merge core.js-->
+        <target name="Merge core.js" depends="">
+                <echo message="merge core.js Begin"/>
+                <concat destfile="${js-run-path}/core.js" encoding="utf-8">
+                
+                    <!--  lib dir -->
+                    <fileset dir="${js-src-path}/lib/" includes="jquery-1.7.2.js"/>
+
+                    <!--  com dir -->
+                    <fileset dir="${js-src-path}/com/" includes="jquery.ajaxupload.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="jquery.url.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="jquery.lazyload.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="jquery.fn.expand.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="AjaxUpload.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Com.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Validator.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Template.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Scroll.js"/>
+                    <fileset dir="${js-src-path}/com/" includes="Log.js"/>
+
+                    <!--  ui dir -->
+                        
+                    <!--  
+                        <fileset dir="${js-src-path}/tool/" includes="Tracer.js"/>
+                    -->
+
+
+                </concat>
+                <echo message="Merge core.js Finished"/>
+        </target>
+
+        <!--Merge iseer.js-->
+        <target name="Merge iseer.js" depends="Merge core.js">
+                <echo message="Merge iseer.js Begin"/>
+                <concat destfile="${js-run-path}/iseer.js" encoding="utf-8">
+
+                    <!--  conf dir -->
+                    <fileset dir="${js-src-path}/conf/" includes="Config.js"/>
+                    <!--  base dir -->
+                    <fileset dir="${js-src-path}/base/" includes="Base.js"/>
+                    <fileset dir="${js-src-path}/base/" includes="Base.Action.js"/>
+
+                    <!--  search dir -->
+                    <fileset dir="${js-src-path}/search/" includes="Search.js"/>
+                    <fileset dir="${js-src-path}/search/" includes="Search.Config.js"/>
+                    <fileset dir="${js-src-path}/search/" includes="Search.Action.js"/>
+                    <fileset dir="${js-src-path}/search/" includes="Search.Base.js"/>
+                    <fileset dir="${js-src-path}/search/" includes="Search.Dao.js"/>
+                       
+                </concat>
+                <echo message="Merge iseer.js Finished"/>
+        </target>
+
+</project>

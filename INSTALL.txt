@@ -1,0 +1,279 @@
+
+ WebOS开发环境安装指南
+=======================================
+ Description: 本文件是项目开发环境的安装说明文件
+ Author: lichunping
+ Mail: jarryli@gmail.com
+ Date: 2011-8-10
+-------------------------
+ List:
+ 1. 开发环境
+ 2. 运行环境
+ 3. 配置说明
+-------------------------
+
+*  开发环境： 
+=======================================
+- SVN源码路径: 
+
+
+- 服务器环境要求：
+   JDK1.6+(build 1.6.0_13-b03)
+  - Tomcat6+(6.0.18)
+  - Apache2.2+(2.2.11)
+  - Mod_jk1.2+(1.2.28)
+  - MySQL5.1+(5.1.32)
+  - Mysql-connector-java-5.x
+
+  安装过程参考：
+
+- 安装开发环境：
+ - 通过SVN获取代码
+ - 安装Web Server环境，设置JAVA_HOME、TOMCAT_HOME等系统变量，
+   并把jdk,tomcat bin以及lib等添加到系统CLASSPATH中:
+   .;%JAVA_HOME%/bin/;%JAVA_HOME%/lib/;%TOMCAT_HOME%/lib/;
+
+ - Eclipse开发环境
+    1) 导入项目
+        通过Eclipse导入已经存在的项目，即svn得到的iseer项目根目录
+    2) 配置tomcat
+       - 新建立dynamic web项目，指定tomcat主目录，加入到新建的tomcat server中，
+       - 或者通过tomcatPlugin来让eclipse支持tomcat
+       把iseer/tools/eclipse_plugin/tomcatPluginV33.zip解压缩到eclipse的plugins目录即可
+    3) 配置build path
+       - iseer lib 把iseer/webapp/WEB-INF/*.jar加入其中
+       - Test lib 把iseer/test/java/lib/*.jar加入其中
+    4) 编译目录
+        - 源码目录: iseer/src/各模块，根据iseer/.classpath设定
+        - 输出目录: iseer/webapp/WEB-INF/classes
+
+*  运行环境：
+=======================================
+- 运行环境目录
+  程序运行目录为根目录下的webapp目录
+
+- 部署配置
+  Tomcat/conf/Catalina/localhost/下新建iseer.xml，部署应用。iseer是开发项目的ROOT目录，webapp是部署的ROOT目录。
+  <?xml version='1.0' encoding='utf-8'?>
+  <!-- iseer Project -->
+  <Context path="/iseer" reloadable="true" docBase="/path/iseer/webapp" workDir="work/Catalina/localhost/iseer" >
+  </Context>
+
+ 或直接把iseer作为主应用，修改con/server.xml，配置主应用程序
+
+  <Context path="" reloadable="false" docBase="/path/iseer/webapp" workDir="work/Catalina/localhost/iseer" >
+  </Context>
+
+  * 开发静态资源目录
+  开发过程中静态资源不在运行环境中，为了方便开发，建立一个虚拟目录，指向静态资源的源文件。
+  因为本项目的静态源码均在项目开发ROOT目录下，故指向项目开发ROOT目录。修改con/server.xml，增加一个"static"目录。
+
+  <Context path="/static" reloadable="true" docBase="/path/iseer" workDir="work/Catalina/localhost/static" >
+  </Context>
+
+  所有静态开发源文件在开发时路径均指向static路径，正式部署时合并压缩后指向项目运行主目录下的相应路径。
+  以后正式上线时再考虑把所有静态资源部署在单独的主机上，目前只做目录区分，但依然放在主目录下。
+
+
+
+
+* 配置说明： 
+=======================================
+
+ - apache&mod_jk
+    版本:Apache2.2.11, mod_jk-1.2.28
+    httpd.conf增加配置
+    DefaultLanguage UTF-8
+    AddDefaultCharset UTF-8
+    # Change default language to UTF-8
+
+    # 添加外部配置文件
+    Include conf/mod_jk.conf
+    Include conf/webapps.conf
+    Include conf/gzip.conf
+
+    -- mod_jk.conf增加配置
+    #加载jk模块，名字要对应
+    LoadModule jk_module modules/mod_jk.so
+    <IfModule silk_filter_module>
+        SetOutputFilter jk_module;silk_filter_module
+    </IfModule>
+
+    # 加载workers.properties文件
+    JkWorkersFile conf/workers.properties
+
+    # mount iseer project
+    # mount iseer project by lichunping
+    JkMount /iseer/*  ajp13
+    #JkAutoAlias /home/work/webapp/iseer/*
+    JkUnMount /iseer    ajp13
+    JkUnMount /iseer/    ajp13
+    JkUnMount /iseer/*.html  ajp13
+    JkUnMount /iseer/*.php  ajp13
+    JkUnMount /iseer/*.css  ajp13
+    JkUnMount /iseer/*.gif  ajp13
+    JkUnMount /iseer/*.png  ajp13
+    JkUnMount /iseer/*.jpg  ajp13
+
+    详细请参见ROOT/conf/apache/下相关配置文件
+
+- Tomcat
+    server.xml 配置
+    <!-- iseer Project -->
+    <Context path="/iseer" reloadable="true" docBase="/home/work/webapp/iseer/webapp" workDir="work/Catalina/localhost/iseer/" >
+    </Context>
+    详细请参见ROOT/conf/tomcat/下相关配置文件
+
+- struts 
+    版本：struts2-core-2.2.3
+    web.xml增加：
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    其他详见ROOT/conf/tomcat/struts.properties文件
+
+- spring
+    版本：springframework3.0.6
+    web.xml增加：
+    <!-- springframework3.0.6 -->
+     <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:applicationContext*.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    其他详见ROOT/webapp/WEB-INF/classes/applicationContext.xml文件
+
+- hibernate
+    版本: hibernate-distribution-3.6.7.Final
+    hibernate3.jar
+    lib/jpa/hibernate-jpa-2.0-api-1.0.1.Final.jar
+    lib/required/*.jar (已存在同样的不复制)
+
+    配置applicationContext.xml，引入hibernate
+    <!-- 
+    // setting database pool，需要c3p0-*.jar支持
+    // 配置c3p0数据库连接池，加载数据库配置常量
+    // 本项目采用c3p0方式
+    -->   
+    <bean id="C3P0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">  
+    <property name="driverClass" value="${jdbc.driverClassName}" />
+    <property name="jdbcUrl" value="${jdbc.url}" />   
+    <property name="user" value="${jdbc.username}" />  
+    <property name="password" value="${jdbc.password}" />  
+    <property name="minPoolSize" value="${jdbc.minPoolSize}" />   
+    <property name="maxPoolSize" value="${jdbc.maxPoolSize}" />  
+    <property name="maxIdleTime" value="${jdbc.maxIdleTime}" />  
+    <property name="maxStatements" value="${jdbc.maxStatements}" />  
+    <property name="acquireIncrement" value="${jdbc.acquireIncrement}" /> 
+    <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}" />    
+    <property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}" />    
+    <property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}" />  
+    </bean>
+    <!--
+    // hibernate Session配置,注解、开启事务,使用拦截器
+    // hibernate configure  for annotation mapping
+    --> 
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="C3P0DataSource" />
+        <property name="namingStrategy">
+            <bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.hibernate.use_outer_join">${hibernate.hibernate.use_outer_join}</prop>
+
+                <prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+                <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop> 
+                <prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+  
+                <prop key="hibernate.connection.charSet">${hibernate.connection.charSet}</prop>
+                <prop key="hibernate.connection.release_mode">${hibernate.connection.release_mode}</prop>
+            </props>
+        </property>
+        <property name="packagesToScan" value="com.jiae.iseer.entity.*" />
+        <property name="entityInterceptor" ref="hibernateInterceptor" />
+    </bean>
+    <bean id="hibernateInterceptor" class="com.jiae.iseer.basic.interceptor.HibernateInterceptor" />  
+
+    其他说明:
+    ROOT/webapp/WEB-INF/classes/
+        applicationContext.xml配置文件
+        jdbc.properties 数据库配置常量
+        application.properties spring配置hibernate用到的常量
+        hibernate.cfg.xml与hibernate.properties仅用作测试，实际项目通过注解注入hibernate实体
+    
+- EhCache
+    版本: ehcache-terracotta-2.4.6.jar
+    配置applicationContext.xml，引入EhCache
+    <cache:annotation-driven cache-manager="cacheManager" proxy-target-class="false" mode="proxy"/>
+    <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+         p:configLocation="classpath:ehcache.xml"
+         p:shared="false" />
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
+       p:cacheManager-ref="cacheManagerFactory"/> 
+    其他说明:
+    ROOT/webapp/WEB-INF/classes/
+        applicationContext.xml配置文件
+        ehcache.xml配置文件
+
+- JSTL/EL
+    版本：jstl-1.2
+    web.xml增加：
+    <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+- Velocity
+    版本：velocity-1.7.jar
+    web.xml增加：
+    <servlet>
+    <servlet-name>velocityView</servlet-name>
+    <servlet-class>org.apache.velocity.tools.view.servlet.VelocityViewServlet</servlet-class>
+    <init-param>
+        <param-name>org.apache.velocity.toolbox</param-name>
+        <param-value>/WEB-INF/classes/tools.xml</param-value>
+    </init-param>
+    <init-param>
+        <param-name>org.apache.velocity.properties</param-name>
+        <param-value>/WEB-INF/classes/velocity.properties</param-value>
+    </init-param>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>velocityView</servlet-name>
+    <url-pattern>*.vm</url-pattern>
+    </servlet-mapping>
+
+    配置参见: ROOT/webapp/WEB-INF/classes/velocity.properties
+
+- log4j
+    log4j.rootLogger = INFO, console, dailyRolling
+    log4j.addivity.org.apache = true 
+    ## dailyRolling ##
+    # define an appender named dailyRolling, which is set to be a DailyRollingFileAppender
+    log4j.appender.dailyRolling=org.apache.log4j.DailyRollingFileAppender
+    # set output file
+    log4j.appender.dailyRolling.File=../logs/iseer/log4j.log
+    #og4j.appender.dailyRolling.MaxFileSize=512KB
+    # set output layout
+    log4j.appender.dailyRolling.layout=org.apache.log4j.PatternLayout
+    log4j.appender.dailyRolling.layout.ConversionPattern=%d [%t] %-5p %-17c{2} (%13F:%L) %3x - %m%n
+    配置参见: ROOT/webapp/WEB-INF/classes/log4j.properties
+
+- MySql 
+   版本：mysql-5.0.67-linux-i686.tar.gz
+   Ver 14.12 Distrib 5.0.67, for redhat-linux-gnu (x86_64)
+   详见：ROOT/conf/mysql/my.cnf
+
+

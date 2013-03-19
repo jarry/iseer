@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WebOS_Build_FindBugs" default="startup" basedir="../../../">
+<property name="findbugs.home" value="tools/findbugs-1.3.9" />
+<property name="findbugs.output.dir" value="test/java/output/findbugs"/>
+          <path id="findbugs.path">
+              <fileset dir="${findbugs.home}">
+                    <include name="**/*.jar" />
+               </fileset>
+          </path>
+
+              <taskdef name="findbugs"
+                   classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
+                   classpathref="findbugs.path" />
+
+              <!--  defined findbugs's home for task  -->
+
+              <target name="startup">
+                <echo message="创建输出目录${findbugs.output.dir}" />
+                <mkdir dir="${findbugs.output.dir}"/>
+                <echo message="文件分析中..." />
+                   <findbugs home="${findbugs.home}"
+                        output="xml:withMessages" outputFile="${findbugs.output.dir}/webos-findbugs.xml">
+                   	
+                    
+                        <auxClasspath path="${findbugs.home}/lib/findbugs-ant.jar" />
+                        <auxClasspath>
+                            <fileset dir="webapp/WEB-INF/lib/"
+                            includes="**/*.jar" />
+                        </auxClasspath>
+
+                        <sourcePath path="src" />
+                        <class location="webapp/WEB-INF/classes" />
+                   </findbugs>
+          </target>
+
+     </project>
